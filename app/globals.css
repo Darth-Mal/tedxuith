@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0e0e0e;
+  /* --foreground: #ededed; */
 }
 
 @theme inline {
@@ -10,12 +14,53 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-playfair-display);
+  --color-primary: #059669;
+  --color-secondary: white;
+  --color-accent: #d97706;
+  /* --color-background: #fffff0; */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply text-white;
+  }
+
+  h1 {
+    @apply text-5xl font-bold mb-4 font-serif text-center text-primary;
+  }
+
+  h3 {
+    @apply text-lg font-bold mb-4 font-serif text-center text-primary;
+  }
+  p {
+    @apply text-base leading-relaxed mb-6 font-sans text-secondary font-light;
+  }
+
+  button {
+    @apply gap-2 hover:gap-3  rounded-md flex font-sans text-sm border-[1px] h-8 py-4 px-3 justify-center items-center cursor-pointer;
+  }
+}
+
+@layer components {
+  .btn-pry {
+    @apply bg-primary text-background hover:bg-background hover:text-primary transition-all ease-in duration-300;
+  }
+
+  .btn-sec {
+    @apply hover:bg-secondary hover:text-background transition-all ease-in duration-300;
+  }
+
+  .navbar {
+    @apply w-[40%] h-12 bg-emerald-50 rounded-full backdrop-blur-lg fixed top-3 opacity-75;
+  }
+
+  .centered {
+    @apply flex flex-col justify-center items-center;
+  }
+
+  .pill-btn {
+    @apply rounded-full h-[80%] px-2 py-1.5  hover:bg-emerald-200 text-primary font-bold text-sm font-sans cursor-pointer;
   }
 }
 
@@ -23,4 +68,20 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+@layer utilities {
+  .wind-drift {
+    animation: wind-drift 10s linear infinite;
+  }
+
+  @keyframes wind-drift {
+    from {
+      transform: translateX(-16%);
+    }
+    to {
+      transform: translateX(60%);
+    }
+  }
 }
