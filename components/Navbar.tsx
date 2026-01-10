@@ -12,10 +12,21 @@ const Navbar = () => {
           />
         </div>
         <div className="flex w-[40%] justify-evenly items-center">
-          <div className="text-sm">ABOUT</div>
-          <div className="text-sm">SPEAKERS</div>
-          <div className="text-sm">ATTEND</div>
-          <div className="text-sm">CONTACT</div>
+          <div>
+            {" "}
+            <p> About</p>
+          </div>
+          <div>
+            <p>Speakers</p>
+          </div>
+          <div>
+            {" "}
+            <p>Attend</p>{" "}
+          </div>
+          <div>
+            {" "}
+            <p>Contact</p>
+          </div>
         </div>
       </div>
     </>
