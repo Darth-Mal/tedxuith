@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplineScene from "@/components/SplineScene";
 import CurvedLoop from "@/components/CurvedLoop";
 import Carousel from "@/components/Carousel";
+// import ScrollFade from "@/components/MotivationPage";
+import Footer from "@/components/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +19,7 @@ export default function Home() {
   const layer3Ref = useRef<HTMLDivElement>(null);
   const layer2HeadingRef = useRef<HTMLHeadingElement>(null);
   const layer2BodyRef = useRef<HTMLParagraphElement>(null);
+  const journeyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (
@@ -152,6 +155,31 @@ export default function Home() {
 
     // === FINAL EXIT POINT ===
     tl.addLabel("end", 1.0);
+
+    // Hide initially (GSAP owns visibility — not Tailwind)
+    gsap.set(journeyRef.current, { opacity: 0, x: 80 });
+
+    // Viewport-based trigger (works with pinned sections)
+    ScrollTrigger.create({
+      trigger: journeyRef.current,
+      start: "top 40%",
+      onEnter: () => {
+        gsap.to(journeyRef.current, {
+          opacity: 1,
+          x: 0,
+          duration: 1.2,
+          ease: "power3.out",
+        });
+      },
+      onLeaveBack: () => {
+        gsap.to(journeyRef.current, {
+          opacity: 0,
+          x: 80,
+          duration: 0.6,
+          ease: "power2.in",
+        });
+      },
+    });
   }, []);
 
   return (
@@ -238,6 +266,19 @@ export default function Home() {
 
       <section className=" relative w-screen h-screen bg-black text-white flex items-center justify-center overflow-hidden">
         <Carousel />
+      </section>
+
+      <section className="relative w-screen h-screen bg-black text-white flex flex-col items-center justify-center text-center px-12 ">
+        <h1 ref={journeyRef} className="font-heading-italic text-8xl">
+          <i className="text-primary ">One Idea</i>
+          <br />
+          Can Change <br />
+          Your Life
+        </h1>
+      </section>
+
+      <section className=" relative w-screen min-h-[calc(100vh*3/4)] bg-black text-white flex items-center justify-center ">
+        <Footer />
       </section>
     </>
   );
