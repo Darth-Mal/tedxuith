@@ -1,15 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Figtree } from "next/font/google";
+import Navbar from "@/components/Navbar";
 import "./globals.css";
+import localFont from "next/font/local";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const figTree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// 1. Setup the Heading Font (e.g., for H1, H2, Hero sections)
+const headingFont = localFont({
+  src: "./fonts/Redaction-Regular.woff2", // Make sure this matches your filename
+  variable: "--font-heading", // CSS Variable for Tailwind
+  display: "swap",
+  weight: "700", // Force bold if it's a single weight file
+});
+
+const headingFontItalic = localFont({
+  src: "./fonts/Redaction-Italic.woff2", // Make sure this matches your filename
+  variable: "--font-heading-italic", // CSS Variable for Tailwind
+  display: "swap",
+  weight: "700", // Force bold if it's a single weight file
 });
 
 export const metadata: Metadata = {
@@ -25,8 +42,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${figTree.variable} ${geistMono.variable} ${headingFont.variable} ${headingFontItalic.variable}  antialiased`}
       >
+        <Navbar />
         {children}
       </body>
     </html>
