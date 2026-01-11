@@ -50,6 +50,7 @@ html {
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-playfair-display);
   --font-main: var(--font-heading);
+  --font-main-italic: var(--font-heading-italic);
   --color-primary: #eb0028;
   --color-secondary: white;
   --color-accent: #d97706;
@@ -153,7 +154,7 @@ body {
 
   /* Frosted glass text */
   .text-frosted {
-    background: linear-gradient(180deg, #efe6ff, #eb002880);
+    background: linear-gradient(180deg, #ffffff, #ffffff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

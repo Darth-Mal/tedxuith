@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplineScene from "@/components/SplineScene";
 import CurvedLoop from "@/components/CurvedLoop";
+import Carousel from "@/components/Carousel";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,6 +24,8 @@ export default function Home() {
       !bgRef.current ||
       !layer1Ref.current ||
       !layer2Ref.current ||
+      !layer2HeadingRef.current ||
+      !layer2BodyRef.current ||
       !layer3Ref.current
     )
       return;
@@ -34,6 +37,7 @@ export default function Home() {
         end: "+=4000",
         pin: true,
         scrub: 0.5,
+        // toggleActions: "play none none reverse",
         snap: {
           snapTo: "labels", // Snaps to [0, 0.35, 0.7, 1]
           duration: { min: 0.2, max: 0.8 },
@@ -100,7 +104,7 @@ export default function Home() {
       layer2BodyRef.current,
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: HALF_STEP, ease: "power2.out" },
-      HALF_STEP + 0.15 // small stagger after heading
+      HALF_STEP + 0.01 // small stagger after heading
     );
 
     // === MIDDLE: STAGE 2 ===
@@ -159,7 +163,7 @@ export default function Home() {
         {/* BACKGROUND */}
         <div
           ref={bgRef}
-          className="absolute inset-0 bg-[url('/tunnel.jpg')] bg-cover bg-center will-change-transform"
+          className="absolute inset-0 bg-[url('/tunnel.jpg')] bg-cover bg-center will-change-transform opacity-90"
         />
 
         {/* Dark overlay */}
@@ -170,19 +174,16 @@ export default function Home() {
           ref={layer1Ref}
           className="absolute h-screen w-screen inset-0 z-10 flex flex-col items-center justify-center text-white will-change-transform"
         >
-          <div className="flex justify-center items-center">
-            <h1 className=" text-white translate-x-16 text-frosted">C</h1>
-            <div className=" text-white h-[290px] w-[300px] scale-40">
+          <div className=" flex justify-center items-center">
+            <h1 className=" text-white translate-x-22 text-frosted">C</h1>
+            <div className=" text-white h-[300px] w-[300px] scale-35">
               <SplineScene />
             </div>
-
-            <h1 className=" text-white -translate-x-16 text-frosted">MPASS</h1>
-            {/* <h1 className=" text-white -translate-x-12">P</h1>
-            <h1 className="text-white  -translate-x-12">A</h1>
-            <h1 className="text-white  -translate-x-12">S</h1>
-            <h1 className=" text-white -translate-x-12">S</h1> */}
+            <h1 className=" text-white -translate-x-24 text-frosted font-heading-italic ">
+              MPASS{" "}
+            </h1>
           </div>
-          <p className=" -translate-y-12 tracking-widest uppercase">
+          <p className=" tracking-widest uppercase">
             Finding direction in ideas worth spreading
           </p>
         </div>
@@ -190,13 +191,16 @@ export default function Home() {
         {/* LAYER 2: DISCOVERY */}
         <div
           ref={layer2Ref}
-          className="absolute inset-0 z-10 flex flex-col items-center justify-center opacity-0 will-change-transform text-center"
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center will-change-transform text-center"
         >
-          <h3 ref={layer2HeadingRef} className="text-[2rem]">
-            COMPASS
+          <h3
+            ref={layer2HeadingRef}
+            className="text-[2rem] opacity-0 font-main-italic"
+          >
+            Compass
           </h3>
 
-          <p ref={layer2BodyRef} className="text-xl text-bold">
+          <p ref={layer2BodyRef} className="text-xl text-bold opacity-0">
             A tool for finding{" "}
             <span>
               <i className="text-primary">direction</i>
@@ -210,25 +214,31 @@ export default function Home() {
             </span>{" "}
             <br /> <br />
             Guidng you to ideas that spark curiosity and <br />{" "}
-            <i className="text-primary text-700">shape the future.</i>
+            <i className="text-primary font-bold">shape the future.</i>
           </p>
         </div>
 
         {/* LAYER 3: IDEAS */}
         <div
           ref={layer3Ref}
-          className="absolute inset-0 z-10 flex items-center justify-center text-white text-6xl font-bold opacity-0 will-change-transform"
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center opacity-0 will-change-transform"
         >
-          Ideas Worth Spreading
+          <p className="text-lg text-justify max-w-1/3">
+            <span className="text-primary font-extrabold">TEDx</span>UITHIlorin
+            is where ideas meet action. <br /> <br />
+            We gather bold thinkers, innovators, and storytellers to inspire,
+            challenge, and spark conversations that move communities forward.{" "}
+            <br /> <br />
+            Every talk, every idea, every connection is a step toward
+            discovering <i className="text-primary">your true north.</i>
+          </p>{" "}
+          <button>Read More</button>
         </div>
       </section>
 
-      <section className="h-[800px] bg-neutral-900 text-white flex items-center justify-center">
-        Next section
+      <section className=" relative w-screen h-screen bg-black text-white flex items-center justify-center overflow-hidden">
+        <Carousel />
       </section>
-      <div className="bg-black h-screen w-screen">
-        <CurvedLoop />
-      </div>
     </>
   );
 }

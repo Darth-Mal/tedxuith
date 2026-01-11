@@ -16,8 +16,15 @@ const geistMono = Geist_Mono({
 
 // 1. Setup the Heading Font (e.g., for H1, H2, Hero sections)
 const headingFont = localFont({
-  src: "./fonts/maginors-maginors-400.otf", // Make sure this matches your filename
+  src: "./fonts/Redaction-Regular.woff2", // Make sure this matches your filename
   variable: "--font-heading", // CSS Variable for Tailwind
+  display: "swap",
+  weight: "700", // Force bold if it's a single weight file
+});
+
+const headingFontItalic = localFont({
+  src: "./fonts/Redaction-Italic.woff2", // Make sure this matches your filename
+  variable: "--font-heading-italic", // CSS Variable for Tailwind
   display: "swap",
   weight: "700", // Force bold if it's a single weight file
 });
@@ -35,7 +42,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${figTree.variable} ${geistMono.variable} ${headingFont.variable} antialiased`}
+        className={`${figTree.variable} ${geistMono.variable} ${headingFont.variable} ${headingFontItalic.variable}  antialiased`}
       >
         <Navbar />
         {children}
