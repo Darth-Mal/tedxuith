@@ -20,7 +20,7 @@ const headingFont = localFont({
   src: "./fonts/Redaction-Regular.woff2", // Make sure this matches your filename
   variable: "--font-heading", // CSS Variable for Tailwind
   display: "swap",
-  weight: "700", // Force bold if it's a single weight file
+  // Force bold if it's a single weight file
 });
 
 const headingFontItalic = localFont({

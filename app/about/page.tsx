@@ -124,10 +124,6 @@ const page = () => {
         </div>
       </section>
 
-      <section className="relative h-screen bg-black">
-        <div className="relative z-10">{/* your content */}</div>
-      </section>
-
       <TeamCarousel></TeamCarousel>
     </>
   );
