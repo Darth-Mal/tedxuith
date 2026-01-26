@@ -251,14 +251,14 @@ export default function Home() {
           ref={layer3Ref}
           className="absolute inset-0 z-10 flex flex-col items-center justify-center opacity-0 will-change-transform"
         >
-          <p className="text-lg text-justify max-w-1/3">
+          <p className="text-lg text-center">
             <span className="text-primary font-extrabold">TEDx</span>UITHIlorin
             is where ideas meet action. <br /> <br />
             We gather bold thinkers, innovators, and storytellers to inspire,
-            challenge, and spark conversations that move communities forward.{" "}
-            <br /> <br />
+            challenge, <br /> and spark conversations that move communities
+            forward. <br /> <br />
             Every talk, every idea, every connection is a step toward
-            discovering <i className="text-primary">your true north.</i>
+            discovering <br /> <i className="text-primary">your true north.</i>
           </p>{" "}
           <button>Read More</button>
         </div>
@@ -275,10 +275,6 @@ export default function Home() {
           Can Change <br />
           Your Life
         </h1>
-      </section>
-
-      <section className=" relative w-screen min-h-[calc(100vh*3/4)] bg-black text-white flex items-center justify-center ">
-        <Footer />
       </section>
     </>
   );
