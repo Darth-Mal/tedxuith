@@ -118,7 +118,7 @@ export default function TeamModal({
                   <p className="text-primary">Team Lead</p>
                 </div>
 
-                <p className="text-gray-600 leading-relaxed w-full text-justify">
+                <p className="text-gray-600 leading-relaxed w-full text-justify hypens-auto">
                   Lorem ipsum dolor sit amet consectetur. Amet egestas hendrerit
                   tempor pharetra suspendisse aliquam hendrerit tempor pharetra.
                   Amet egestas hendrerit tempor pharetra suspendisse aliquam

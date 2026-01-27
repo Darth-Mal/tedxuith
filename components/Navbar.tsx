@@ -36,27 +36,46 @@ const Navbar = () => {
         <div className="relative h-10 w-32 flex items-center justify-center">
           {/* Switched to standard html img tag for simplicity based on your snippet, 
               but consider using <Image /> with width/height for optimization */}
-          <img
-            className="h-full object-contain"
-            src="/logo-white.png"
-            alt="TEDxUITH Ilorin logo"
-          />
+          <a href="/">
+            {" "}
+            <img
+              className="h-full object-contain"
+              src="/logo-white.png"
+              alt="TEDxUITH Ilorin logo"
+            />
+          </a>
         </div>
 
         {/* Navigation Links */}
         <div className="flex w-[40%] justify-evenly items-center text-white">
           <div className="cursor-pointer hover:text-gray-300 transition-colors">
-            <p>About</p>
+            <a href="/about">
+              <p>About</p>
+            </a>
+          </div>
+
+          <div className="cursor-pointer hover:text-gray-300 transition-colors">
+            <a href="/speakers">
+              {" "}
+              <p>Speakers</p>
+            </a>
           </div>
           <div className="cursor-pointer hover:text-gray-300 transition-colors">
-            <p>Speakers</p>
+            <a href="/attend">
+              {" "}
+              <p>Attend</p>
+            </a>
           </div>
           <div className="cursor-pointer hover:text-gray-300 transition-colors">
-            <p>Attend</p>
+            <a href="/sponsors">
+              <p>Sponsors</p>
+            </a>
           </div>
           {/* CTA Button Example */}
           <div className="cursor-pointer hover:text-gray-300 transition-colors">
-            <p>Contact</p>
+            <a href="/contact">
+              <p>Contact</p>
+            </a>
           </div>
         </div>
       </nav>
