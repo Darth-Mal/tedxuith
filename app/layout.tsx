@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Figtree } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 import localFont from "next/font/local";
+import Footer from "@/components/Footer";
 
 const figTree = Figtree({
   variable: "--font-figtree",
@@ -19,7 +20,7 @@ const headingFont = localFont({
   src: "./fonts/Redaction-Regular.woff2", // Make sure this matches your filename
   variable: "--font-heading", // CSS Variable for Tailwind
   display: "swap",
-  weight: "700", // Force bold if it's a single weight file
+  // Force bold if it's a single weight file
 });
 
 const headingFontItalic = localFont({
@@ -46,6 +47,9 @@ export default function RootLayout({
       >
         <Navbar />
         {children}
+        <section className=" relative w-screen min-h-[calc(100vh*3/4)] bg-black text-white flex items-center justify-center ">
+          <Footer />
+        </section>
       </body>
     </html>
   );

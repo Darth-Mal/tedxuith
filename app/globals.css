@@ -95,6 +95,10 @@ html {
     @apply text-white;
   }
 
+  .centered {
+    @apply flex items-center justify-center;
+  }
+
   h1 {
     @apply text-[8rem] font-main text-center mt-6;
   }
@@ -135,6 +139,7 @@ html {
 
 body {
   color: white;
+  background-color: black;
 }
 
 @layer utilities {
