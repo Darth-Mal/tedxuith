@@ -1,19 +1,31 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import Image from "next/image";
-import { Divide } from "lucide-react";
 import TeamCarousel from "@/components/TeamCarousel";
+import TeamModal from "@/components/TeamModal";
 
 gsap.registerPlugin(ScrollTrigger);
-const page = () => {
+
+const Page = () => {
   const bgRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const missionRef = useRef<HTMLDivElement>(null);
   const mission2Ref = useRef<HTMLDivElement>(null);
   const missionDivRef = useRef<HTMLDivElement>(null);
+
+  // --- STATE FOR MODAL ---
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedTeamName, setSelectedTeamName] = useState("");
+
+  // Handler for when a team card button is clicked
+  const handleOpenModal = (member: any) => {
+    // We can use the member data to set the title
+    // e.g. "Web Development Team" or "Design Team" based on their role
+    setSelectedTeamName(`${member.role} Team`);
+    setIsModalOpen(true);
+  };
 
   useEffect(() => {
     if (!bgRef.current) return;
@@ -65,9 +77,8 @@ const page = () => {
 
   return (
     <>
-      <div className="centered h-screen">
-        <h1 className="text-[60px] font-sans font-light">
-          {" "}
+      <div className="centered h-screen flex flex-col items-center justify-center">
+        <h1 className="text-[60px] font-main font-light">
           About
           <span className="text-primary font-extrabold"> TEDx</span>
         </h1>
@@ -79,10 +90,16 @@ const page = () => {
           level.
         </p>
       </div>
-      <div ref={bgRef} className="centered h-screen">
-        <div ref={textRef} className="centered">
-          <h1 className="text-[60px] font-sans font-light text-black ">
-            {" "}
+
+      <div
+        ref={bgRef}
+        className="centered h-screen flex flex-col items-center justify-center"
+      >
+        <div
+          ref={textRef}
+          className="centered flex flex-col items-center justify-center"
+        >
+          <h1 className="text-[60px] font-main font-light text-black ">
             About
             <span className="text-primary font-extrabold"> TEDx</span>UITHIlorin
           </h1>
@@ -99,19 +116,19 @@ const page = () => {
           </p>
         </div>
       </div>
+
       <section ref={missionDivRef} className="relative h-[50vh] bg-black flex">
         <div className="absolute inset-0 bg-[url('/dots.svg')] bg-repeat opacity-35" />
 
         <div className="relative overflow-hidden z-10 flex items-center w-screen h-[50vh]">
-          <div className="centered  items-start min-w-[50%]">
-            <h1 className="m-0 translate-y-15 ">MISSION</h1>
+          <div className="centered items-start min-w-[50%] flex flex-col pl-10">
+            <h1 className="m-0 translate-y-15 text-white">MISSION</h1>
             <h1 ref={mission2Ref} className="m-0 text-primary ">
-              {" "}
               <i>MISSION</i>
             </h1>
-            <h1 className="m-0 -translate-y-15 ">MISSION</h1>
+            <h1 className="m-0 -translate-y-15 text-white">MISSION</h1>
           </div>
-          <div ref={missionRef} className="pe-5">
+          <div ref={missionRef} className="pe-5 text-white w-[50%]">
             <p>
               Our mission at{" "}
               <span className="text-primary font-bold">TEDx</span>UITHIlorin is
@@ -124,8 +141,16 @@ const page = () => {
         </div>
       </section>
 
-      <TeamCarousel></TeamCarousel>
+      {/* CAROUSEL SECTION */}
+      <TeamCarousel onMemberClick={handleOpenModal} />
+
+      {/* POPUP MODAL */}
+      <TeamModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        teamName={selectedTeamName}
+      />
     </>
   );
 };
-export default page;
+export default Page;
