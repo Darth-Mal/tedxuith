@@ -20,6 +20,7 @@ export default function Home() {
   const layer2HeadingRef = useRef<HTMLHeadingElement>(null);
   const layer2BodyRef = useRef<HTMLParagraphElement>(null);
   const journeyRef = useRef<HTMLDivElement>(null);
+  const journeySectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (
@@ -77,7 +78,7 @@ export default function Home() {
         duration: STEP_DURATION,
         ease: "power2.inOut",
       },
-      0
+      0,
     );
 
     // 2. Layer 1 Exits FIRST (0.0 to 0.175)
@@ -91,7 +92,7 @@ export default function Home() {
         duration: HALF_STEP,
         ease: "power2.in",
       },
-      0
+      0,
     );
 
     // 3. Layer 2 heading enters FIRST
@@ -99,7 +100,7 @@ export default function Home() {
       layer2HeadingRef.current,
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: HALF_STEP, ease: "power2.out" },
-      HALF_STEP
+      HALF_STEP,
     );
 
     // 4. Layer 2 body enters SECOND (slightly after heading)
@@ -107,7 +108,7 @@ export default function Home() {
       layer2BodyRef.current,
       { opacity: 0, y: 20 },
       { opacity: 1, y: 0, duration: HALF_STEP, ease: "power2.out" },
-      HALF_STEP + 0.01 // small stagger after heading
+      HALF_STEP + 0.01, // small stagger after heading
     );
 
     // === MIDDLE: STAGE 2 ===
@@ -123,7 +124,7 @@ export default function Home() {
         duration: STEP_DURATION,
         ease: "power2.inOut",
       },
-      STEP_DURATION
+      STEP_DURATION,
     );
 
     // 2. Layer 2 Exits FIRST (0.35 to 0.525)
@@ -136,7 +137,7 @@ export default function Home() {
         duration: HALF_STEP,
         ease: "power2.in",
       },
-      STEP_DURATION
+      STEP_DURATION,
     );
 
     // 3. Layer 3 Enters SECOND (0.525 to 0.70)
@@ -144,7 +145,7 @@ export default function Home() {
       layer3Ref.current,
       { scale: 0.5, opacity: 0, y: 150 },
       { scale: 1, opacity: 1, y: 0, duration: HALF_STEP, ease: "power2.out" },
-      STEP_DURATION + HALF_STEP // <--- Start time delayed
+      STEP_DURATION + HALF_STEP, // <--- Start time delayed
     );
 
     // === ARRIVAL: STAGE 3 ===
@@ -161,20 +162,20 @@ export default function Home() {
 
     // Viewport-based trigger (works with pinned sections)
     ScrollTrigger.create({
-      trigger: journeyRef.current,
-      start: "top 40%",
+      trigger: journeySectionRef.current,
+      start: "top 80%",
       onEnter: () => {
         gsap.to(journeyRef.current, {
           opacity: 1,
           x: 0,
-          duration: 1.2,
+          duration: 1.5,
           ease: "power3.out",
         });
       },
       onLeaveBack: () => {
         gsap.to(journeyRef.current, {
           opacity: 0,
-          x: 80,
+          x: 120,
           duration: 0.6,
           ease: "power2.in",
         });
@@ -203,15 +204,17 @@ export default function Home() {
           className="absolute h-screen w-screen inset-0 z-10 flex flex-col items-center justify-center text-white will-change-transform"
         >
           <div className=" flex justify-center items-center">
-            <h1 className=" text-white translate-x-22 text-frosted">C</h1>
-            <div className=" text-white h-[300px] w-[300px] scale-35">
+            <h1 className=" text-white sm:translate-x-22 translate-x-28 text-frosted text-6xl sm:text-[8rem] mt-0">
+              C
+            </h1>
+            <div className=" text-white h-[300px] w-[300px] scale-20 sm:scale-35">
               <SplineScene />
             </div>
-            <h1 className=" text-white -translate-x-24 text-frosted font-heading-italic ">
+            <h1 className=" text-white sm:-translate-x-22 -translate-x-28 text-frosted font-heading-italic text-6xl sm:text-[8rem] mt-0">
               MPASS{" "}
             </h1>
           </div>
-          <p className=" tracking-widest uppercase">
+          <p className=" tracking-widest uppercase text-[12px] -translate-y-10 sm:translate-y-0 sm:text-sm">
             Finding direction in ideas worth spreading
           </p>
         </div>
@@ -241,8 +244,9 @@ export default function Home() {
               <i className="text-primary">why.</i>
             </span>{" "}
             <br /> <br />
-            Guidng you to ideas that spark curiosity and <br />{" "}
-            <i className="text-primary font-bold">shape the future.</i>
+            Guidng you to ideas that
+            <br /> spark curiosity and <br />
+            <i className="text-primary font-bold"> shape the future.</i>
           </p>
         </div>
 
@@ -251,7 +255,7 @@ export default function Home() {
           ref={layer3Ref}
           className="absolute inset-0 z-10 flex flex-col items-center justify-center opacity-0 will-change-transform"
         >
-          <p className="text-lg text-center">
+          <p className="text-lg text-center w-[80vw]">
             <span className="text-primary font-extrabold">TEDx</span>UITHIlorin
             is where ideas meet action. <br /> <br />
             We gather bold thinkers, innovators, and storytellers to inspire,
@@ -260,16 +264,25 @@ export default function Home() {
             Every talk, every idea, every connection is a step toward
             discovering <br /> <i className="text-primary">your true north.</i>
           </p>{" "}
-          <button>Read More</button>
+          <button className="mt-12 hover:bg-white hover:text-black transition-colors duration-300">
+            {" "}
+            <a href="/about">Read More</a>{" "}
+          </button>
         </div>
       </section>
 
-      <section className=" relative w-screen h-screen bg-black text-white flex items-center justify-center overflow-hidden">
+      <section className=" relative w-full h-[90vh] sm:h-screen  bg-black text-white flex items-center justify-center overflow-hidden">
         <Carousel />
       </section>
 
-      <section className="relative w-screen h-screen bg-black text-white flex flex-col items-center justify-center text-center px-12 ">
-        <h1 ref={journeyRef} className="font-heading-italic text-8xl">
+      <section
+        ref={journeySectionRef}
+        className="relative w-full h-[70vh] bg-black text-white flex flex-col items-center justify-center text-center px-12  mb-12"
+      >
+        <h1
+          ref={journeyRef}
+          className="font-heading-italic text-6xl sm:text-8xl"
+        >
           <i className="text-primary ">One Idea</i>
           <br />
           Can Change <br />

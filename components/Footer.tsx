@@ -8,8 +8,10 @@ const Footer = () => {
       <div className="bg-primary rounded-t-[100px] w-full min-h-full flex flex-col items-center pt-[55px] pb-2 ">
         {/* --- YOUR ORIGINAL BUTTON SECTION --- */}
         {/* I added bg-white/text-primary to make the button pop against the primary background */}
-        <button className="w-[90%] text-primary hover:text-primary hover:bg-gray-100 transition-colors duration-300 rounded-[50px] h-20 text-4xl flex flex-col items-center justify-center shadow-lg">
-          <h3 className="font-main-italic m-0 text-4xl ">Register</h3>
+        <button className="w-[90%] text-white hover:text-primary hover:bg-gray-100 transition-colors duration-300 rounded-[50px] h-20 text-4xl flex flex-col items-center justify-center shadow-lg">
+          <h3 className="font-main-italic m-0 text-4xl text-inherit ">
+            Register
+          </h3>
         </button>
 
         {/* --- NEW CONTENT BELOW --- */}
@@ -39,7 +41,7 @@ const Footer = () => {
                 >
                   {item}
                 </a>
-              )
+              ),
             )}
           </div>
 

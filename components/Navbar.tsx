@@ -1,19 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image"; // Ensure you are using this component
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Handle scroll detection
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -26,59 +23,68 @@ const Navbar = () => {
         className={`fixed z-50 flex items-center justify-between transition-all duration-300 ease-in-out
         ${
           isScrolled
-            ? // STYLES WHEN SCROLLED (Floating, blurred, curved, narrower)
-              "top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl rounded-full bg-black/30 backdrop-blur-md border border-white/10 shadow-lg py-3 px-8"
-            : // STYLES AT TOP (Full width, transparent, no borders)
-              "top-0 left-0 w-full bg-transparent py-6 px-12"
+            ? "top-4 left-1/2 -translate-x-1/2 w-[90%] max-w-6xl rounded-full bg-black/30 backdrop-blur-md border border-white/10 shadow-lg py-3 px-6"
+            : "top-0 left-0 w-full bg-transparent py-6 px-6 md:px-12"
         }`}
       >
-        {/* Logo Container */}
-        <div className="relative h-10 w-32 flex items-center justify-center">
-          {/* Switched to standard html img tag for simplicity based on your snippet, 
-              but consider using <Image /> with width/height for optimization */}
-          <a href="/">
-            {" "}
-            <img
-              className="h-full object-contain"
-              src="/logo-white.png"
-              alt="TEDxUITH Ilorin logo"
-            />
-          </a>
+        {/* Logo */}
+        <a href="/" className="h-10 w-32 flex items-center">
+          <img
+            className="h-full object-contain"
+            src="/logo-white.png"
+            alt="TEDxUITH Ilorin logo"
+          />
+        </a>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex w-[40%] justify-evenly items-center text-white">
+          {["About", "Speakers", "Attend", "Sponsors", "Contact"].map(
+            (item) => (
+              <a
+                key={item}
+                href={`/${item.toLowerCase()}`}
+                className="hover:text-gray-300 transition-colors"
+              >
+                {item}
+              </a>
+            ),
+          )}
         </div>
 
-        {/* Navigation Links */}
-        <div className="flex w-[40%] justify-evenly items-center text-white">
-          <div className="cursor-pointer hover:text-gray-300 transition-colors">
-            <a href="/about">
-              <p>About</p>
-            </a>
-          </div>
-
-          <div className="cursor-pointer hover:text-gray-300 transition-colors">
-            <a href="/speakers">
-              {" "}
-              <p>Speakers</p>
-            </a>
-          </div>
-          <div className="cursor-pointer hover:text-gray-300 transition-colors">
-            <a href="/attend">
-              {" "}
-              <p>Attend</p>
-            </a>
-          </div>
-          <div className="cursor-pointer hover:text-gray-300 transition-colors">
-            <a href="/sponsors">
-              <p>Sponsors</p>
-            </a>
-          </div>
-          {/* CTA Button Example */}
-          <div className="cursor-pointer hover:text-gray-300 transition-colors">
-            <a href="/contact">
-              <p>Contact</p>
-            </a>
-          </div>
-        </div>
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden text-white"
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </nav>
+
+      {/* Mobile Menu */}
+      <div
+        className={`fixed inset-x-0 top-0 z-40 bg-black/90 backdrop-blur-md transition-all duration-300 ease-in-out
+        ${
+          menuOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-4 pointer-events-none"
+        }`}
+      >
+        <div className="pt-24 pb-8 flex flex-col items-center space-y-6 text-white text-lg">
+          {["About", "Speakers", "Attend", "Sponsors", "Contact"].map(
+            (item) => (
+              <a
+                key={item}
+                href={`/${item.toLowerCase()}`}
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-gray-300 transition-colors"
+              >
+                {item}
+              </a>
+            ),
+          )}
+        </div>
+      </div>
     </>
   );
 };
