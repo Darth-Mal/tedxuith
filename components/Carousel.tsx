@@ -8,37 +8,37 @@ const Carousel = () => {
     {
       id: 1,
       color: "bg-gray-500",
-      img: "/carousel images/tech.jpg",
+      img: "/carousel images/tech.png",
       name: "Technology",
     },
     {
       id: 2,
       color: "bg-gray-500",
-      img: "/carousel images/edu.jpg",
+      img: "/carousel images/edu.webp",
       name: "Education",
     },
     {
       id: 3,
       color: "bg-gray-500",
-      img: "/carousel images/entertainment.jpg",
+      img: "/carousel images/entertainment.webp",
       name: "Entertainment",
     },
     {
       id: 4,
       color: "bg-gray-500",
-      img: "/carousel images/social.jpg",
+      img: "/carousel images/social.webp",
       name: "Social Impact",
     },
     {
       id: 5,
       color: "bg-gray-500",
-      img: "/carousel images/business.jpg",
+      img: "/carousel images/business.webp",
       name: "Business and Entrepreneurship",
     },
     {
       id: 6,
       color: "bg-gray-500",
-      img: "/carousel images/creativity.jpg",
+      img: "/carousel images/creativity.webp",
       name: "Creativity and Content Creation",
     },
   ];
@@ -48,7 +48,7 @@ const Carousel = () => {
   const count = items.length;
   const theta = 360 / count;
   const radius = Math.round(
-    (itemWidth + gap) / (2 * Math.tan(Math.PI / count))
+    (itemWidth + gap) / (2 * Math.tan(Math.PI / count)),
   );
 
   // 2. State to track the current position
