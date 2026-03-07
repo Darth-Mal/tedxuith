@@ -7,15 +7,83 @@ import { Users, ArrowRight } from "lucide-react";
 
 const teamMembers = [
   {
+    name: "Oyesola Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+  },
+  {
     name: "Malomo Victor",
     role: "Web Development Team Lead",
-    color: "bg-stone-300",
+    img: "/carousel images/tech.png",
+    text: "",
   },
-  { name: "Seyi Doe", role: "Designer", color: "bg-blue-300" },
-  { name: "John Smith", role: "Manager", color: "bg-green-300" },
-  { name: "Jane Auston", role: "Engineer", color: "bg-yellow-300" },
-  { name: "Alex Tunde", role: "Content", color: "bg-purple-300" },
-  { name: "Sarah Cole", role: "Marketing", color: "bg-pink-300" },
+  {
+    name: "Malomo Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Web Development Team Lead",
+    img: "/carousel images/tech.png",
+    text: "",
+  },
 ];
 
 // Define Props Interface
