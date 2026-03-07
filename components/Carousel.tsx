@@ -73,7 +73,7 @@ const Carousel = () => {
 
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center translate-y-10">
-      <h1 className="text-4xl">Our Coordinates</h1>
+      <h1 className="text-4xl translate-y-10">Our Coordinates</h1>
       <div className="flex flex-col items-center justify-center h-full w-full overflow-hidden">
         {/* Container with Perspective */}
         <div
