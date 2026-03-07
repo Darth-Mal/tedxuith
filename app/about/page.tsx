@@ -63,7 +63,7 @@ const Page = () => {
       },
     });
     gsap.from(mission2Ref.current, {
-      x: -150,
+      x: -100,
       opacity: 0,
       duration: 1.2,
       ease: "power3.out",
@@ -82,7 +82,7 @@ const Page = () => {
           About
           <span className="text-primary font-extrabold"> TEDx</span>
         </h1>
-        <p className="font-sans text-center sm:max-w-1/2 max-w-[90%]">
+        <p className="font-sans text-lg text-center sm:max-w-1/2 max-w-[90%]">
           <span className="text-primary font-bold">TEDx</span> is a global
           program of independently organized events inspired by TED’s mission of
           ideas worth spreading. TEDx events bring people together to share
@@ -99,20 +99,19 @@ const Page = () => {
           ref={textRef}
           className="centered flex flex-col items-center justify-center"
         >
-          <h1 className="text-[60px] font-main font-light text-black ">
+          <h1 className="text-[55px] font-main font-light text-black sm:max-w-1/2 max-w-[90%]">
             About
             <span className="text-primary font-extrabold"> TEDx</span>UITHIlorin
           </h1>
-          <p className="font-sans text-center sm:max-w-1/2 max-w-[90%] text-black ">
+          <p className="font-sans text-center text-lg sm:max-w-1/2 max-w-[90%] text-black ">
             <span className="text-primary font-bold ">TEDx</span>
             UITHIlorin is an independently organized TEDx event based at the
             University of Ilorin Teaching Hospital. It is dedicated to
             showcasing powerful ideas, innovative thinking, and diverse
-            perspectives from within the UITH community and beyond. By bringing
-            together students, professionals, creatives, and changemakers,
-            TEDxUITHIlorin aims to inspire curiosity, encourage dialogue, and
-            spark ideas that can shape the future of healthcare, society, and
-            innovation.
+            perspectives from within Ilorin and beyond. By bringing together
+            students, professionals, creatives, and changemakers, TEDxUITHIlorin
+            aims to inspire curiosity, encourage dialogue, and spark ideas that
+            can shape the future of healthcare, society, and innovation.
           </p>
         </div>
       </div>
@@ -120,15 +119,22 @@ const Page = () => {
       <section ref={missionDivRef} className="relative h-[50vh] bg-black flex">
         <div className="absolute inset-0 bg-[url('/dots.svg')] bg-repeat opacity-35" />
 
-        <div className="relative overflow-hidden z-10 flex items-center w-screen h-[50vh]">
-          <div className="centered items-start min-w-[50%] flex flex-col pl-10">
-            <h1 className="m-0 translate-y-15 text-white">MISSION</h1>
-            <h1 ref={mission2Ref} className="m-0 text-primary ">
+        <div className="relative overflow-hidden z-10 sm:flex items-center w-screen h-[50vh]">
+          <div className="  w-full sm:items-start min-w-[50%] flex items-center justify-center sm:flex-col  sm:pl-10 ">
+            <h1 className="m-0 max-md:lg sm:translate-y-15 text-white">
+              MISSION
+            </h1>
+            <h1 ref={mission2Ref} className="m-0 text-primary max-md:lg ">
               <i>MISSION</i>
             </h1>
-            <h1 className="m-0 -translate-y-15 text-white">MISSION</h1>
+            <h1 className="m-0 sm:-translate-y-15 text-white max-md:3xl">
+              MISSION
+            </h1>
           </div>
-          <div ref={missionRef} className="pe-5 text-white w-[50%]">
+          <div
+            ref={missionRef}
+            className="sm:pe-5 text-center sm:max-w-1/2 max-w-[90%] text-white sm:w-[50%] flex justify-center items-center sm:block"
+          >
             <p>
               Our mission at{" "}
               <span className="text-primary font-bold">TEDx</span>UITHIlorin is

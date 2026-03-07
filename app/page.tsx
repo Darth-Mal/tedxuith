@@ -192,7 +192,7 @@ export default function Home() {
         {/* BACKGROUND */}
         <div
           ref={bgRef}
-          className="absolute inset-0 bg-[url('/tunnel.jpg')] bg-cover bg-center will-change-transform opacity-90"
+          className="absolute inset-0 bg-[url('/tunnel.jpg')] bg-size-[100vh_100vh] bg-no-repeat sm:bg-cover bg-center will-change-transform opacity-90"
         />
 
         {/* Dark overlay */}
@@ -204,13 +204,13 @@ export default function Home() {
           className="absolute h-screen w-screen inset-0 z-10 flex flex-col items-center justify-center text-white will-change-transform"
         >
           <div className=" flex justify-center items-center">
-            <h1 className=" text-white sm:translate-x-22 translate-x-28 text-frosted text-6xl sm:text-[8rem] mt-0">
+            <h1 className=" text-white sm:translate-x-22 translate-x-28 text-frosted text-7xl sm:text-[8rem] mt-0">
               C
             </h1>
             <div className=" text-white h-[300px] w-[300px] scale-20 sm:scale-35">
               <SplineScene />
             </div>
-            <h1 className=" text-white sm:-translate-x-22 -translate-x-28 text-frosted font-heading-italic text-6xl sm:text-[8rem] mt-0">
+            <h1 className=" text-white sm:-translate-x-22 -translate-x-28 text-frosted font-heading-italic text-7xl sm:text-[8rem] mt-0">
               MPASS{" "}
             </h1>
           </div>
@@ -226,12 +226,15 @@ export default function Home() {
         >
           <h3
             ref={layer2HeadingRef}
-            className="text-[2rem] opacity-0 font-main-italic"
+            className="text-[3rem] opacity-0 font-main-italic"
           >
             Compass
           </h3>
 
-          <p ref={layer2BodyRef} className="text-xl text-bold opacity-0">
+          <p
+            ref={layer2BodyRef}
+            className="sm:text-xl text-2xl text-bold opacity-0"
+          >
             A tool for finding{" "}
             <span>
               <i className="text-primary">direction</i>
@@ -255,7 +258,7 @@ export default function Home() {
           ref={layer3Ref}
           className="absolute inset-0 z-10 flex flex-col items-center justify-center opacity-0 will-change-transform"
         >
-          <p className="text-lg text-center w-[80vw]">
+          <p className="sm:text-xl text-2xl text-center w-[80vw]">
             <span className="text-primary font-extrabold">TEDx</span>UITHIlorin
             is where ideas meet action. <br /> <br />
             We gather bold thinkers, innovators, and storytellers to inspire,

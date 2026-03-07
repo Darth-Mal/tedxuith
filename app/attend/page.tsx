@@ -13,15 +13,15 @@ const AttendPage = () => {
           alt="flyer"
         ></Image>
 
-        <div className="relative centered">
-          <div className="absolute z-11 bottom-0 text-[8px] font-light h-10 py-2 px-2 bg-primary centered font-sans text-nowrap  rotate-4 shadow-sm">
+        <div className="relative centered w-screen">
+          <div className=" w-full absolute z-11 bottom-0 text-[8px] font-light h-10 py-2 px-2 bg-primary centered font-sans text-nowrap  rotate-4 shadow-sm">
             TEDxUITHILORIN • MAIN EVENT • COMPASS • EVENT DETAILS • ATTEND
             COMPASS • TEDxUITHILORIN • MAIN EVENT • COMPASS • EVENT DETAILS •
             ATTEND COMPASS • TEDxUITHILORIN • MAIN EVENT • COMPASS • EVENT
             DETAILS • ATTEND COMPASS • TEDxUITHILORIN • MAIN EVENT • COMPASS •
             EVENT DETAILS • ATTEND COMPASS
           </div>{" "}
-          <div className="absolute z-10 bottom-0 text-[8px] font-light h-10 py-2 px-2 bg-[#dadada] text-black centered font-sans text-nowrap -rotate-4">
+          <div className=" w-full absolute z-10 bottom-0 text-[8px] font-light h-10 py-2 px-2 bg-[#dadada] text-black centered font-sans text-nowrap -rotate-4">
             TEDxUITHILORIN • MAIN EVENT • COMPASS • EVENT DETAILS • ATTEND
             COMPASS • TEDxUITHILORIN • MAIN EVENT • COMPASS • EVENT DETAILS •
             ATTEND COMPASS • TEDxUITHILORIN • MAIN EVENT • COMPASS • EVENT
@@ -31,13 +31,13 @@ const AttendPage = () => {
           {/* <div className=" absolute bg-orange-600 w-screen h-1"></div> */}
         </div>
 
-        <div className="h-screen bg-primary w-full h-screen grid grid-cols-[1fr_auto_1fr] gap-4 py-15 px-[72px]">
-          <div className="grid grid-rows-3-[1fr_auto_1fr] h-[80%]">
-            <h1 className="text-[70px] text-left m-0 leading-20">
+        <div className="h-screen bg-primary w-full h-screen sm:grid sm:grid-cols-[1fr_auto_1fr] gap-4 py-15 sm:px-[72px] flex flex-col px-10">
+          <div className="grid grid-rows-3-[1fr_auto_1fr] h-[80%] w-[90%] gap-4">
+            <h1 className="text-[50px] text-left m-0 leading-15 sm:text-[70px]">
               Tedx <br /> UITHILORIN:
             </h1>
             <div className="bg-white h-[1px] w-full m-0"></div>
-            <h1 className=" m-0 text-[70px] text-left font-main-italic leading-none">
+            <h1 className=" m-0 text-[60px] text-left font-main-italic leading-none">
               Compass{" "}
             </h1>
           </div>

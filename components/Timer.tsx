@@ -47,14 +47,14 @@ export default function Countdown() {
     <main className={`min-h-1/2 bg-black flex justify-center font-main`}>
       {/* TRAPEZOID CONTAINER */}
       {/* The clip-path creates the slanted sides: (TopLeft, TopRight, BottomRight, BottomLeft) */}
-      <div className="relative bg-white w-full max-w-5xl pt-24 pb-24 px-4 md:px-12 text-center [clip-path:polygon(0%_0%,100%_0%,95%_100%,5%_100%)]">
+      <div className="relative bg-white w-full max-w-6xl pt-24 pb-24 px-4 md:px-12 text-center [clip-path:polygon(0%_0%,100%_0%,95%_100%,5%_100%)]">
         {/* RED MARQUEE STRIP */}
 
         {/* NUMBERS GRID */}
-        <div className="flex flex-wrap justify-center items-start gap-4 md:gap-8 text-black">
+        <div className="flex flex-nowrap justify-center items-start gap-2 md:gap-8 text-black">
           {/* DAYS */}
           <div className="flex flex-col items-center w-24 md:w-32">
-            <span className="text-6xl md:text-8xl leading-none">
+            <span className="text-6xl sm:text-8xl leading-none">
               {timeLeft.days}
             </span>
             <div className="bg-[#C60000] text-white font-sans text-xs md:text-sm py-2 w-full mt-4 tracking-widest uppercase">
@@ -63,11 +63,11 @@ export default function Countdown() {
           </div>
 
           {/* SEPARATOR */}
-          <span className="text-5xl md:text-7xl mt-2 hidden sm:block">:</span>
+          <span className="text-4xl md:text-7xl mt-2 hidden sm:block">:</span>
 
           {/* HOURS */}
           <div className="flex flex-col items-center w-24 md:w-32">
-            <span className="text-6xl md:text-8xl leading-none">
+            <span className="text-6xl sm:text-8xl leading-none">
               {timeLeft.hours}
             </span>
             <div className="bg-[#C60000] text-white font-sans text-xs md:text-sm py-2 w-full mt-4 tracking-widest uppercase">
@@ -76,11 +76,11 @@ export default function Countdown() {
           </div>
 
           {/* SEPARATOR */}
-          <span className="text-5xl md:text-7xl mt-2 hidden sm:block">:</span>
+          <span className="text-4xl md:text-7xl mt-2 hidden sm:block">:</span>
 
           {/* MINUTES */}
           <div className="flex flex-col items-center w-24 md:w-32">
-            <span className="text-6xl md:text-8xl leading-none">
+            <span className="text-6xl sm:text-8xl leading-none">
               {timeLeft.minutes}
             </span>
             <div className="bg-[#C60000] text-white font-sans text-xs md:text-sm py-2 w-full mt-4 tracking-widest uppercase">
@@ -89,11 +89,11 @@ export default function Countdown() {
           </div>
 
           {/* SEPARATOR */}
-          <span className="text-5xl md:text-7xl mt-2 hidden sm:block">:</span>
+          <span className="text-4xl md:text-7xl mt-2 hidden sm:block">:</span>
 
           {/* SECONDS */}
           <div className="flex flex-col items-center w-24 md:w-32">
-            <span className="text-6xl md:text-8xl leading-none">
+            <span className="text-6xl sm:text-8xl leading-none">
               {timeLeft.seconds}
             </span>
             <div className="bg-[#C60000] text-white font-sans text-xs md:text-sm py-2 w-full mt-4 tracking-widest uppercase">

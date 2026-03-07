@@ -93,6 +93,7 @@ html {
 @layer base {
   body {
     @apply text-white;
+    @apply box-border;
   }
 
   .centered {

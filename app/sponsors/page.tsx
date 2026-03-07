@@ -4,7 +4,7 @@ const SponsorsSection = () => {
   return (
     <section className="relative py-20 lg:py-32 overflow-hidden">
       {/* Background Image & Overlay */}
-      <div className="absolute -top-15 z-0">
+      <div className="absolute sm:-top-15  z-0">
         {/* Replace the src below with your actual handshake image */}
         <img src={"/sponsors.png"} className="w-full h-1/3 object-cover " />
         {/* Dark Red/Black Gradient Overlay to match the aesthetic */}
