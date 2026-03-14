@@ -14,12 +14,56 @@ interface TeamModalProps {
 
 // Mock data for the grid on the right
 const TEAM_GRID = [
-  { name: "Malomo Victor", role: "Role" },
-  { name: "Malomo Victor", role: "Role" },
-  { name: "Malomo Victor", role: "Role" },
-  { name: "Malomo Victor", role: "Role" },
-  { name: "Malomo Victor", role: "Role" },
-  { name: "Malomo Victor", role: "Role" },
+  {
+    name: "Malomo Victor Ayooluwa",
+    role: "Role",
+    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Role",
+    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Role",
+    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Role",
+    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Role",
+    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Role",
+    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Role",
+    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Role",
+    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Role",
+    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+  },
+  {
+    name: "Malomo Victor",
+    role: "Role",
+    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+  },
 ];
 
 export default function TeamModal({

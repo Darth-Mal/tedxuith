@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Countdown from "@/components/Timer";
+import TicketForm from "@/components/BuyTickets";
 
 const AttendPage = () => {
   return (
@@ -82,6 +83,9 @@ const AttendPage = () => {
             COUNTDOWN
           </div>{" "}
         </div>
+      </section>
+      <section>
+        <TicketForm></TicketForm>
       </section>
       <section>
         <div>
