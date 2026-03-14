@@ -1,73 +1,67 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, forwardRef, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/all";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function SquigglyScroll() {
+const SquigglyScroll = forwardRef<SVGPathElement>((props, ref) => {
   const svgRef = useRef<SVGSVGElement | null>(null);
-  const pathRef = useRef<SVGPathElement | null>(null);
+
+  const pathD = `
+    M70 200
+    C 500 350, 100 600, 400 800
+    S 550 1100, 200 1300
+    S 500 1600, 250 1900
+    S 100 2200, 450 2500
+    S 350 2800, 500 3100
+    S 150 3400, 420 3700
+    S 520 4000, 300 4300
+  `;
+
+  const svgHeight = 4500;
+  const svgWidth = 600;
 
   useEffect(() => {
-    if (!pathRef.current || !svgRef.current) return;
+    const path = (ref as React.RefObject<SVGPathElement>)?.current;
+    if (!path || !svgRef.current) return;
 
-    const path = pathRef.current;
-
-    // Get full path length
     const length = path.getTotalLength();
 
-    // Hide path initially
-    gsap.set(path, {
-      strokeDasharray: length,
-      strokeDashoffset: length,
-    });
+    gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
 
-    // Animate drawing on scroll
     gsap.to(path, {
       strokeDashoffset: 0,
-      ease: "power2.out",
+      ease: "none",
       scrollTrigger: {
         trigger: svgRef.current,
-        start: "top 20%",
-        end: "bottom 20%",
-        scrub: true,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.9,
       },
     });
-
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
-  }, []);
+  }, [ref]);
 
   return (
-    <div>
-      {/* Extra scroll space */}
-
-      <div className="flex justify-center items-center py-50">
-        <svg
-          ref={svgRef}
-          viewBox="0 0 595.28 841.89"
-          width="800"
-          className="max-w-full"
-        >
-          <path
-            ref={pathRef}
-            d="M129.35,53.38c68.33-16.92,312.01-68.14,263.44,75.94c-56.36,167.2,41.33,56.36,69.51,71.39
-			c28.18,15.03,10.33,53.54-31.94,86.42s-272.41,76.09-263.95,2.82c8.45-73.27,112.72,35.69,142.78,126.81
-			c30.06,91.12,131.51-17.85,152.17,24.42c20.67,42.27-148.42,188.81-279.92,142.78s-83.6,59.18,27.24,68.57s165.32-39.45,209.47,31
-			c41.87,66.82,91.35,51.67,69.89,116.46"
-            fill="none"
-            stroke="white"
-            strokeWidth="8"
-            strokeLinecap="round"
-            stroke-miterlimit="10"
-            stroke-dasharray="12"
-            // strokeLinejoin="round"
-          />
-        </svg>
-      </div>
+    <div className="relative w-full h-[6500px]">
+      <svg
+        ref={svgRef}
+        viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+        className="w-full absolute top-0 left-0 z-0"
+      >
+        <path
+          ref={ref}
+          d={pathD}
+          fill="none"
+          stroke="#eb0028"
+          strokeWidth="2"
+          strokeLinecap="round"
+          className="opacity-90 drop-shadow-[0_0_12px_rgba(235,0,40,0.9)]"
+        />
+      </svg>
     </div>
   );
-}
+});
+
+export default SquigglyScroll;

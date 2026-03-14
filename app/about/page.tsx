@@ -63,7 +63,7 @@ const Page = () => {
       },
     });
     gsap.from(mission2Ref.current, {
-      x: -100,
+      x: -150,
       opacity: 0,
       duration: 1.2,
       ease: "power3.out",
@@ -82,7 +82,7 @@ const Page = () => {
           About
           <span className="text-primary font-extrabold"> TEDx</span>
         </h1>
-        <p className="font-sans text-lg text-center sm:max-w-1/2 max-w-[90%]">
+        <p className="font-sans text-md text-center sm:max-w-1/2 max-w-[90%]">
           <span className="text-primary font-bold">TEDx</span> is a global
           program of independently organized events inspired by TED’s mission of
           ideas worth spreading. TEDx events bring people together to share
@@ -103,7 +103,7 @@ const Page = () => {
             About
             <span className="text-primary font-extrabold"> TEDx</span>UITHIlorin
           </h1>
-          <p className="font-sans text-center text-lg sm:max-w-1/2 max-w-[90%] text-black ">
+          <p className="font-sans text-center text-md sm:max-w-1/2 max-w-[90%] text-black ">
             <span className="text-primary font-bold ">TEDx</span>
             UITHIlorin is an independently organized TEDx event based at the
             University of Ilorin Teaching Hospital. It is dedicated to
@@ -119,23 +119,23 @@ const Page = () => {
       <section ref={missionDivRef} className="relative h-[50vh] bg-black flex">
         <div className="absolute inset-0 bg-[url('/dots.svg')] bg-repeat opacity-35" />
 
-        <div className="relative overflow-hidden z-10 sm:flex items-center w-screen h-[50vh]">
-          <div className="  w-full sm:items-start min-w-[50%] flex items-center justify-center sm:flex-col  sm:pl-10 ">
-            <h1 className="m-0 max-md:lg sm:translate-y-15 text-white">
+        <div className="relative overflow-hidden z-10 sm:flex flex flex-col items-center justify-center w-screen h-[50vh]">
+          <div className="  w-full sm:items-start min-w-[50%] flex items-center justify-center sm:flex-col  sm:pl-10 gap-4">
+            <h1 className="m-0 max-md:text-5xl  sm:translate-y-15 text-white">
               MISSION
             </h1>
-            <h1 ref={mission2Ref} className="m-0 text-primary max-md:lg ">
+            <h1 ref={mission2Ref} className="m-0 text-primary max-md:text-5xl ">
               <i>MISSION</i>
             </h1>
-            <h1 className="m-0 sm:-translate-y-15 text-white max-md:3xl">
+            <h1 className="m-0 sm:-translate-y-15 text-white max-md:text-5xl">
               MISSION
             </h1>
           </div>
           <div
             ref={missionRef}
-            className="sm:pe-5 text-center sm:max-w-1/2 max-w-[90%] text-white sm:w-[50%] flex justify-center items-center sm:block"
+            className=" max-md:mt-6 sm:pe-5 text-center sm:max-w-1/2 max-w-[85%] text-white sm:w-[50%] flex justify-center items-center sm:block"
           >
-            <p>
+            <p className="text-md">
               Our mission at{" "}
               <span className="text-primary font-bold">TEDx</span>UITHIlorin is
               to ignite curiosity, amplify bold ideas, and bring diverse voices

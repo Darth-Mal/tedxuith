@@ -5,141 +5,104 @@ import gsap from "gsap";
 import Image from "next/image";
 import { Users, ArrowRight } from "lucide-react";
 
-const teamMembers = [
+type TeamMember = {
+  name: string;
+  role: string;
+  img: string;
+};
+
+const teamMembers: TeamMember[] = [
   {
     name: "Oyesola Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+    role: "Lead Organizer / Licensee",
+    img: "/team/oyesola.png",
   },
   {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
+    name: "Ola-Dahunsi Mercy Tomishola",
+    role: "General Secretary",
+    img: "/team/mercy.png",
   },
   {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
+    name: "Malomo Victor Ayooluwa",
+    role: "Web Development",
+    img: "/team/malomo.jpg",
   },
   {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
+    name: "Tanitoluwa Kola-Akinola",
+    role: "Web Development",
+    img: "/team/tani.jpg",
   },
   {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
+    name: "Adu Samuel Oluwatomisin",
+    role: "Fundraising",
+    img: "/team/adu.png",
   },
   {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
+    name: `Olamide "Lam Lam" Ojediran`,
+    role: "Social Media Management",
+    img: "/team/lamlam.jpg",
   },
   {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
+    name: "Osborn Gabriel Katung",
+    role: "Publicity (Co-Lead)",
+    img: "/team/osborn.jpg",
   },
   {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
+    name: "Odule Modesola Elizabeth",
+    role: "Publicity (Co-Lead)",
+    img: "/team/odule.jpg",
   },
   {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
+    name: "Rotimi Ayomide Evelyn",
+    role: "Welfare",
+    img: "/team/rotimi.jpg",
   },
   {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
-  },
-  {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
-  },
-  {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
-  },
-  {
-    name: "Malomo Victor",
-    role: "Web Development Team Lead",
-    img: "/carousel images/tech.png",
-    text: "",
+    name: "Oyinloye Oluwadamilare Samuel ",
+    role: "Media and Audiovisual",
+    img: "/team/sembu.jpg",
   },
 ];
 
-// Define Props Interface
 interface TeamCarouselProps {
-  onMemberClick?: (member: any) => void;
+  onMemberClick?: (member: TeamMember) => void;
 }
 
 export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const angle = useRef(270); // Start at 270 (Top)
+  const angle = useRef(270);
   const [dragStart, setDragStart] = useState<number | null>(null);
 
   const radiusX = 800;
   const radiusY = 200;
   const spread = 15;
 
-  // Duplicate more times to ensure no gaps during fast spins
-  const displayCards = [
-    ...teamMembers,
-    ...teamMembers,
-    ...teamMembers,
-    ...teamMembers,
-    ...teamMembers,
-    ...teamMembers,
-  ];
+  const displayCards = Array(6).fill(teamMembers).flat();
 
   const updatePositions = () => {
     if (!containerRef.current) return;
+
     const elements = containerRef.current.children;
 
     Array.from(elements).forEach((el, i) => {
       const indexOffset = i - Math.floor(displayCards.length / 2);
       const currentAngleDeg = angle.current + indexOffset * spread;
-
       const a = (currentAngleDeg * Math.PI) / 180;
 
-      // 1. Position Math
       const x = radiusX * Math.cos(a);
       const y = radiusY * Math.sin(a);
 
-      // 2. Normalize angle to 0-360 range for calculations
       let normalized = currentAngleDeg % 360;
       if (normalized < 0) normalized += 360;
 
-      // 3. Calculate Distance from Top Center (270)
       let distFromTop = 270 - normalized;
 
-      // Handle the wrapping boundary (so 0 and 360 connect smoothly)
       if (distFromTop < -180) distFromTop += 360;
       if (distFromTop > 180) distFromTop -= 360;
 
-      // 4. Rotation Logic
       const rotation = distFromTop * 0.2;
-
-      // 5. Styles
       const absDist = Math.abs(distFromTop);
+
       const scale = Math.max(0.4, 1 - absDist / 90);
       const zIndex = Math.round(-y);
       const opacity = Math.max(0, 1 - absDist / 60);
@@ -161,7 +124,6 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
         overwrite: "auto",
       });
 
-      // Active State (strict center check)
       const isCenter = absDist < 8;
 
       if (textContent) {
@@ -193,10 +155,12 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
 
   const handleDragEnd = (e: React.MouseEvent | React.TouchEvent) => {
     if (dragStart === null) return;
+
     const clientX =
       "changedTouches" in e
         ? e.changedTouches[0].clientX
         : (e as React.MouseEvent).clientX;
+
     const delta = clientX - dragStart;
 
     if (delta > 40) prev();
@@ -215,7 +179,6 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
     updatePositions();
   };
 
-  // Auto-rotate every 7 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       if (dragStart === null) {
@@ -228,8 +191,8 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
 
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden flex flex-col items-center justify-center font-sans">
-      <h3 className="absolute top-8 text-white text-5xl font-main-italic z-20 pointer-events-none">
-        The Team
+      <h3 className="absolute top-25 text-white text-5xl font-main-italic z-20 pointer-events-none">
+        The Team Leads
       </h3>
 
       <div
@@ -247,49 +210,39 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
             className="absolute origin-center flex justify-center"
             style={{ width: "200px", height: "300px" }}
           >
-            <div className="red-bg absolute -inset-3 bg-primary z-0 opacity-0">
-              {/* Decorative X Background */}
-              <div className="absolute z-50 flex w-full overflow-x-hidden">
-                {/* ... (Kept your existing X pattern code) ... */}
-              </div>
-            </div>
+            <div className="red-bg absolute -inset-3 bg-primary z-0 opacity-0"></div>
 
-            <div
-              className={`relative w-full h-[200px] z-10 overflow-hidden bg-cyan-800`}
-            >
+            <div className="relative w-full h-[200px] z-10 overflow-hidden bg-cyan-800">
               <div
                 className="w-full h-full bg-cover bg-center"
-                style={{
-                  backgroundImage: `url(https://via.placeholder.com/300)`,
-                  mixBlendMode: "normal",
-                }}
+                style={{ backgroundImage: `url(${member.img})` }}
               ></div>
+
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none"></div>
             </div>
 
-            <div className="info-box absolute -bottom-1.5 w-[270px] bg-white p-3 shadow-2xl z-20 opacity-0 transition-opacity ">
+            <div className="info-box absolute -bottom-1.5 w-[270px] bg-white p-3 shadow-2xl z-20 opacity-0 transition-opacity">
               <h3 className="text-[16px] font-bold text-black font-main text-left m-0">
                 {member.name}
               </h3>
+
               <div className="flex justify-between h-[14px] items-center">
                 <div className="flex items-center h-full">
                   <div className="mr-1 w-[2px] h-full bg-primary"></div>
                   <p className="font-[400] text-black text-xs">{member.role}</p>
                 </div>
-                <div>
-                  <Image
-                    src={"/logo-black.png"}
-                    width={50}
-                    height={50}
-                    alt="logo"
-                  />
-                </div>
+
+                <Image
+                  src={"/logo-black.png"}
+                  width={50}
+                  height={50}
+                  alt="logo"
+                />
               </div>
 
-              {/* ACTION BUTTON */}
               <button
                 onClick={(e) => {
-                  e.stopPropagation(); // Stop drag event from firing
+                  e.stopPropagation();
                   if (onMemberClick) onMemberClick(member);
                 }}
                 className="group relative flex items-center justify-center gap-2 bg-primary hover:bg-[#eb0028e6] text-white text-[10px] font-medium tracking-wide py-0.5 px-2 rounded-full transition-all duration-300 ease-out shadow-md hover:shadow-lg hover:pr-3 pl-4 mt-3"
@@ -313,6 +266,7 @@ export default function TeamCarousel({ onMemberClick }: TeamCarouselProps) {
         >
           &larr;
         </button>
+
         <button
           onClick={next}
           className="pointer-events-auto w-12 h-12 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white hover:text-black transition"
