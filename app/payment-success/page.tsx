@@ -1,3 +1,4 @@
+// app/payment-success/page.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -10,7 +11,7 @@ interface TicketData {
   error?: string;
 }
 
-export default function PaymentSuccess() {
+export default function PaymentSuccessPage() {
   const params = useSearchParams();
   const [ticket, setTicket] = useState<TicketData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -57,7 +58,6 @@ export default function PaymentSuccess() {
     );
   }
 
-  // Success state – ticket is guaranteed to be non-null here
   return (
     <div style={{ textAlign: "center", marginTop: "10vh" }}>
       <h1>Payment Successful 🎉</h1>
