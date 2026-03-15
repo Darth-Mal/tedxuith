@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplineScene from "@/components/SplineScene";
@@ -8,6 +8,7 @@ import CurvedLoop from "@/components/CurvedLoop";
 import Carousel from "@/components/Carousel";
 // import ScrollFade from "@/components/MotivationPage";
 import Footer from "@/components/Footer";
+import TextLoader from "@/components/TextLoader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -183,8 +184,12 @@ export default function Home() {
     });
   }, []);
 
+  const [loaded, setLoaded] = useState(false);
+
   return (
     <>
+      <TextLoader done={loaded} />
+
       <section
         ref={heroRef}
         className="relative w-screen h-screen overflow-hidden bg-black"
@@ -208,7 +213,15 @@ export default function Home() {
               C
             </h1>
             <div className=" text-white h-[300px] w-[300px] scale-20 sm:scale-35">
-              <SplineScene />
+              <SplineScene
+                onLoad={() => {
+                  console.log("Spline loaded");
+                  setTimeout(() => {
+                    setLoaded(true);
+                  }, 800);
+                }}
+                className="absolute inset-0"
+              />
             </div>
             <h1 className=" text-white sm:-translate-x-22 -translate-x-28 text-frosted font-heading-italic text-7xl sm:text-[8rem] mt-0">
               MPASS{" "}
