@@ -1,4 +1,4 @@
-"use client"; // ⚠️ This makes the page fully client-side
+"use client"; // MUST be first line
 
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
@@ -9,8 +9,8 @@ export default function PaymentSuccessPage() {
 
   useEffect(() => {
     if (reference) {
-      // TODO: Call your API to verify payment / send email with QR code
       console.log("Payment reference:", reference);
+      // Call your API to send ticket/QR code email
     }
   }, [reference]);
 
