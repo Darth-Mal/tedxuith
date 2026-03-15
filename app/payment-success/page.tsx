@@ -70,7 +70,7 @@ export default function PaymentSuccessPage() {
           <img
             src={ticket.qrCode}
             alt="Ticket QR Code"
-            style={{ maxWidth: "200px" }}
+            style={{ maxWidth: "300px" }}
           />
         </div>
       )}
