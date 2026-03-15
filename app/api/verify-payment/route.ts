@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { supabaseAdmin } from "../../../lib/supabase-admin";
+import { supabaseAdmin } from "@/lib/supabase-admin";
 import QRCode from "qrcode";
 import { sendTicketEmail } from "@/lib/send-ticket";
 
