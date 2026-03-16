@@ -1,51 +1,30 @@
-import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase-admin";
+// /payment-success/page.tsx
+"use client"; // ensures this page is treated as a client component
 
-export async function POST(req: Request) {
-  console.log("🔵 verify-payment route triggered");
+import { useSearchParams } from "next/navigation";
 
-  try {
-    const body = await req.json();
-    console.log("📦 Request body:", body);
+export const dynamic = "force-dynamic"; // skips prerendering
 
-    const { reference } = body;
+export default function PaymentSuccessPage() {
+  const searchParams = useSearchParams();
+  const reference = searchParams.get("reference");
 
-    console.log("🔎 Payment reference:", reference);
-
-    // your verification logic
-    const response = await fetch(
-      `https://api.paystack.co/transaction/verify/${reference}`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
-        },
-      },
-    );
-
-    const data = await response.json();
-
-    console.log("💳 Paystack response:", data);
-
-    if (data.data.status === "success") {
-      console.log("✅ Payment verified");
-
-      // save ticket
-      const { error } = await supabaseAdmin
-        .from("tickets")
-        .insert([{ reference }]);
-
-      if (error) {
-        console.error("❌ Supabase insert error:", error);
-      }
-
-      return NextResponse.json({ success: true });
-    }
-
-    console.warn("⚠ Payment not successful");
-
-    return NextResponse.json({ success: false });
-  } catch (err) {
-    console.error("🔥 API ERROR:", err);
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
-  }
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-50">
+      <h1 className="text-3xl font-bold mb-4 text-green-600">
+        Payment Successful ✅
+      </h1>
+      {reference ? (
+        <p className="text-lg text-gray-800">
+          Your payment reference is: <strong>{reference}</strong>
+        </p>
+      ) : (
+        <p className="text-lg text-gray-800">No payment reference found.</p>
+      )}
+      <p className="mt-6 text-sm text-gray-500">
+        Thank you for your payment. You should also receive an email with your
+        ticket and QR code shortly.
+      </p>
+    </div>
+  );
 }
