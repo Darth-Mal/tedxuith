@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 
 type PaymentStatus = {
   success: boolean;
-  message: string;
+  message?: string;
+  ticketId?: string;
+  qrCode?: string;
 };
 
 export default function PaymentSuccessClient() {
@@ -22,13 +24,24 @@ export default function PaymentSuccessClient() {
       return;
     }
 
-    // Call your API to verify payment and send ticket email
     fetch(`/api/verify-payment?reference=${reference}`)
       .then((res) => res.json())
       .then((data) => {
-        setStatus(data);
+        // If API returned success & ticket info
+        if (data.success) {
+          setStatus({
+            success: true,
+            ticketId: data.ticketId,
+            qrCode: data.qrCode,
+          });
+        } else {
+          setStatus({
+            success: false,
+            message: data.error || "Payment failed.",
+          });
+        }
       })
-      .catch((err) => {
+      .catch(() => {
         setStatus({ success: false, message: "Error verifying payment." });
       })
       .finally(() => setLoading(false));
@@ -51,7 +64,19 @@ export default function PaymentSuccessClient() {
       >
         {status?.success ? "Payment Successful ✅" : "Payment Failed ❌"}
       </h1>
-      <p className="text-lg text-gray-800">{status?.message}</p>
+
+      {status?.success ? (
+        <>
+          <p className="text-lg text-gray-800 mb-4">
+            Ticket ID: {status.ticketId}
+          </p>
+          {status.qrCode && (
+            <img src={status.qrCode} alt="Your Ticket QR Code" />
+          )}
+        </>
+      ) : (
+        <p className="text-lg text-gray-800">{status?.message}</p>
+      )}
     </div>
   );
 }
