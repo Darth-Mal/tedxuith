@@ -11,20 +11,119 @@ interface TeamModalProps {
 }
 
 /* TEAM DATA */
+/* TEAM DATA */
 const TEAM_DATA: Record<
   string,
   { leadName: string; statement: string; members: { name: string }[] }
 > = {
+  "Publicity & Content Team": {
+    leadName: "Osborn Gabriel Katung (Co-Lead, Publicity Team)",
+    statement:
+      "Our team is focused on promoting TEDxUITH Ilorin through publicity and content creation.",
+    members: [
+      { name: "Jolayemi Ayomide" },
+      { name: "Oluwadamilare David" },
+      { name: "Aliyu Taimiyyah Abdullahi" },
+      { name: "Tetsola Marvellous" },
+      { name: "Ogundele Eunice" },
+      { name: "Abolarin Oluwabusolami Ayotomiwa" },
+      { name: "Ibikunle Aishah Adekemi" },
+      { name: "Yusuf Umuani" },
+      { name: "Abdulaziz Ahmad" },
+      { name: "Ashraff Samuel-Patrick" },
+      { name: "Deniran Charity" },
+    ],
+  },
+
+  "Publicity & Content Team2": {
+    leadName: "Odule Elizabeth Modesola (Publicity Co-Lead)",
+    statement:
+      "Our team is focused on promoting TEDxUITH Ilorin through publicity and content creation.",
+    members: [
+      { name: "Jolayemi Ayomide" },
+      { name: "Oluwadamilare David" },
+      { name: "Aliyu Taimiyyah Abdullahi" },
+      { name: "Tetsola Marvellous" },
+      { name: "Ogundele Eunice" },
+      { name: "Abolarin Oluwabusolami Ayotomiwa" },
+      { name: "Ibikunle Aishah Adekemi" },
+      { name: "Yusuf Umuani" },
+      { name: "Abdulaziz Ahmad" },
+      { name: "Ashraff Samuel-Patrick" },
+      { name: "Deniran Charity" },
+    ],
+  },
+  "Media & Audiovisual Team": {
+    leadName: "Oyinloye Oluwadamilare Samuel",
+    statement:
+      "Our team handles all media and audiovisual needs for TEDxUITH Ilorin.",
+    members: [
+      { name: "Tolulope Oluropo" },
+      { name: "Jedidiah Uzodinma" },
+      { name: "Teniola Testimony Toluwalope" },
+      { name: "Afolabi Jemimah Simisola" },
+      { name: "Sawyerr Dorcas Olamide" },
+      { name: "Abdulrahman Maryam Tanwa" },
+      { name: "Omotosho Joshua Moranugba" },
+      { name: "Ategbe Mercy" },
+      { name: "Iheanacho John Caleb" },
+      { name: "Taiwo Richard Godspromise" },
+      { name: "Temilade Ayanfe" },
+    ],
+  },
+  "Welfare Team": {
+    leadName: "Ayomide Rotimi Evelyn (Team Lead)",
+    statement:
+      "Our team ensures the welfare of all TEDxUITH Ilorin participants and team members.",
+    members: [
+      { name: "Ohajunwa John" },
+      { name: "Bolanle Alimi" },
+      { name: "Tolorunshagba Odunayo" },
+      { name: "Abologbon Christianah Tobi" },
+      { name: "Bello Grace Adeola" },
+      { name: "Aasa Peace Erioluwa" },
+      { name: "Adebisi Muftiat" },
+    ],
+  },
+  "Fundraising Team": {
+    leadName: "Adu Samuel Jesutofunmi (Team Lead)",
+    statement:
+      "Our team manages sponsorships and partnerships for TEDxUITH Ilorin.",
+    members: [
+      { name: "Adesina Titilayo Deborah" },
+      { name: "Ajisafe Francis" },
+      { name: "Tsado Beulah" },
+    ],
+  },
   "Web Development Team": {
     leadName: "Malomo Victor Ayooluwa",
     statement:
-      "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and encouraging intellectual conversations.",
+      "Our team builds and maintains the TEDxUITH Ilorin website and digital platforms.",
     members: [
-      { name: "John Doe" },
-      { name: "Jane Doe" },
-      { name: "Samuel Ade" },
-      { name: "Fatima Bello" },
+      { name: "Salawu Olamilekan" },
+      // { name: "Oyinloye Olanrewaju Joseph" },
     ],
+  },
+  "Logistics Team": {
+    leadName: "Tanitoluwa Kola-Akinola",
+    statement: "Our team ensures all logistics run smoothly during events.",
+    members: [{ name: "Ajayi Emmanuel" }],
+  },
+  "Branding & Design Team": {
+    leadName: "Team Lead",
+    statement:
+      "Our team designs TEDxUITH Ilorin's branding and creative materials.",
+    members: [
+      { name: "Akinsipe Simileoluwa" },
+      { name: "Babalola Moyinoluwa" },
+      { name: "Rofiat Amuda" },
+      { name: "Elias Ojo" },
+    ],
+  },
+  "Social Media Management Team": {
+    leadName: "Olamide Ojediran",
+    statement: "Our team manages TEDxUITH Ilorin's social media presence.",
+    members: [{ name: "Lucky Flourish Abisola" }, { name: "David Japheth" }],
   },
 };
 

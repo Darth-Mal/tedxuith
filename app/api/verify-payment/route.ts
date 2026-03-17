@@ -1,69 +1,106 @@
-// app/api/verify-payment/route.ts
-import { NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase-admin";
+import { NextApiRequest, NextApiResponse } from "next";
+import { supabase } from "@/lib/supabase";
 import QRCode from "qrcode";
-import { sendTicketEmail } from "@/lib/send-ticket";
+import { Resend } from "resend";
 
-export async function POST(req: Request) {
+// Initialize Resend (make sure RESEND_API_KEY is set in .env)
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  const { reference } = req.query;
+
+  if (!reference || typeof reference !== "string") {
+    return res
+      .status(400)
+      .json({ success: false, message: "No payment reference provided." });
+  }
+
   try {
-    const { reference } = await req.json();
-    if (!reference) {
-      return NextResponse.json(
-        { error: "Reference is required" },
-        { status: 400 },
-      );
-    }
+    console.log("Verifying Paystack reference:", reference);
 
-    // 1️⃣ Verify payment with Paystack
+    // Set up 10-second timeout
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000);
+
+    // Verify payment with Paystack
     const response = await fetch(
       `https://api.paystack.co/transaction/verify/${reference}`,
       {
         headers: {
           Authorization: `Bearer ${process.env.PAYSTACK_SECRET_KEY}`,
         },
+        signal: controller.signal,
       },
     );
+
+    clearTimeout(timeout);
+
     const data = await response.json();
+    console.log("Paystack response:", data);
 
-    if (!data.data || data.data.status !== "success") {
-      return NextResponse.json({ error: "Payment failed" }, { status: 400 });
-    }
+    if (data.status && data.data.status === "success") {
+      const email = data.data.customer.email;
+      const name = data.data.customer.first_name || "Attendee"; // fallback if no name
 
-    const name = data.data.metadata?.name ?? "No Name";
-    const email = data.data.customer?.email ?? "";
+      // 1️⃣ Update transaction status in Supabase
+      await supabase
+        .from("transactions")
+        .update({ status: "success" })
+        .eq("reference", reference);
 
-    // 2️⃣ Generate ticket serial and QR code
-    const ticketSerial = `TEDXUITH-${Math.floor(Math.random() * 100000)}`;
-    const qrCode = await QRCode.toDataURL(ticketSerial);
+      // 2️⃣ Generate ticket ID and QR code
+      const ticketId = `TICKET-${Math.floor(Math.random() * 1000000)}`;
+      const qrCode = await QRCode.toDataURL(ticketId);
 
-    // 3️⃣ Send ticket email (placeholder)
-    await sendTicketEmail(email, name, ticketSerial, qrCode);
-
-    // 4️⃣ Save ticket to Supabase
-    const { data: insertData, error } = await supabaseAdmin
-      .from("tickets")
-      .insert({
-        name,
+      // 3️⃣ Save ticket in Supabase
+      await supabase.from("tickets").insert({
         email,
-        ticket_serial: ticketSerial,
-        payment_reference: reference,
-        amount: data.data.amount,
+        ticket_id: ticketId,
+        reference,
+        qr_code: qrCode,
       });
 
-    if (error) {
-      console.error("Supabase insert error:", error);
-      return NextResponse.json(
-        { error: "Ticket creation failed" },
-        { status: 500 },
-      );
+      // 4️⃣ Send ticket via email
+      await resend.emails.send({
+        from: "tickets@yourdomain.com",
+        to: email,
+        subject: "Your Event Ticket 🎫",
+        html: `
+          <h1>Hi ${name}, your ticket is confirmed!</h1>
+          <p>Ticket ID: ${ticketId}</p>
+          <img src="${qrCode}" alt="Your Ticket QR Code" />
+        `,
+      });
+
+      // 5️⃣ Return info to frontend
+      return res.status(200).json({
+        success: true,
+        ticketId,
+        qrCode,
+      });
+    } else {
+      console.error("Payment verification failed:", data);
+      return res.status(400).json({
+        success: false,
+        message:
+          data.message ||
+          "Payment verification failed. Please contact support.",
+      });
+    }
+  } catch (error: any) {
+    console.error("Error verifying payment:", error);
+
+    let message = "Server error verifying payment.";
+    if (error.name === "AbortError") {
+      message = "Payment verification timed out. Please try again.";
     }
 
-    return NextResponse.json({ success: true, ticketSerial, qrCode });
-  } catch (err) {
-    console.error("Verify payment error:", err);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 },
-    );
+    return res.status(500).json({
+      success: false,
+      message,
+    });
   }
 }

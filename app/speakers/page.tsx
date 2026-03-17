@@ -39,58 +39,71 @@ const speakers = () => {
   ];
 
   return (
-    <div className="relative">
-      {/* Speaker Cards */}
-      {speaker.map((sp, i) => {
-        const layout = cardLayout[i];
+    <>
+      {/* <div className="h-[90vh] w-[90vw] bg-white flex items-center absolute z-40 overflow-hidden">
+        <h1 className="text-red-700">ANTICIPATE SPEAKERS</h1>
+      </div> */}
+      <div className="relative overflow-hidden h-screen">
+        {/* Speaker Cards */}
+        {speaker.map((sp, i) => {
+          const layout = cardLayout[i];
 
-        return (
-          <section
-            key={sp.id}
-            className={`absolute h-[300px] z-30 ${
-              layout.side === "left" ? "left-[10%]" : "right-[10%]"
-            }`}
-            style={{ top: `${layout.top}px` }}
-          >
-            <div className="h-[200px] aspect-[3/4] flex flex-col items-center">
-              {/* Image */}
-              <div className="relative w-full h-[200px] overflow-hidden bg-cyan-800">
-                <div
-                  className="w-full h-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${sp.img})` }}
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-              </div>
-
-              {/* Info box */}
-              <div className="w-full bg-white p-3 shadow-2xl">
-                <h3 className="text-[16px] font-bold text-black font-main text-left mb-0">
-                  {sp.name}
-                </h3>
-
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center h-[14px]">
-                    <div className="mr-1 w-[2px] h-full bg-primary"></div>
-                    <p className="font-[400] text-black text-xs">{sp.title}</p>
-                  </div>
-
-                  <Image
-                    src="/logo-black.png"
-                    width={45}
-                    height={45}
-                    alt="logo"
+          return (
+            <section
+              key={sp.id}
+              className={`absolute h-[300px] z-30 ${
+                layout.side === "left" ? "left-[10%]" : "right-[10%]"
+              }`}
+              style={{ top: `${layout.top}px` }}
+            >
+              <div className="h-[200px] aspect-[3/4] flex flex-col items-center">
+                {/* Image */}
+                <div className="relative w-full h-[200px] overflow-hidden bg-cyan-800">
+                  <div
+                    className="w-full h-full bg-cover bg-center"
+                    style={{ backgroundImage: `url(${sp.img})` }}
                   />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+                </div>
+
+                {/* Info box */}
+                <div className="w-full bg-white p-3 shadow-2xl">
+                  <h3 className="text-[16px] font-bold text-black font-main text-left mb-0">
+                    {sp.name}
+                  </h3>
+
+                  <div className="flex justify-between items-center">
+                    <div className="flex items-center h-[14px]">
+                      <div className="mr-1 w-[2px] h-full bg-primary"></div>
+                      <p className="font-[400] text-black text-xs">
+                        {sp.title}
+                      </p>
+                    </div>
+
+                    <Image
+                      src="/logo-black.png"
+                      width={45}
+                      height={45}
+                      alt="logo"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-        );
-      })}
+            </section>
+          );
+        })}
 
-      {/* Squiggly Scroll Line */}
-      <SquigglyScroll />
-    </div>
+        {/* Squiggly Scroll Line */}
+        <SquigglyScroll />
+
+        <div className="absolute inset-0 bg-black/95 flex items-center justify-center z-30">
+          <h1 className="text-5xl md:text-6xl font-bold text-white text-center">
+            Anticipate Speakers
+          </h1>
+        </div>
+      </div>
+    </>
   );
 };
 
