@@ -43,7 +43,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${figTree.variable} ${geistMono.variable} ${headingFont.variable} ${headingFontItalic.variable}  antialiased`}
+        className={`${figTree.variable} ${geistMono.variable} ${headingFont.variable} ${headingFontItalic.variable} antialiased`}
+        suppressHydrationWarning
       >
         <Navbar />
         {children}
