@@ -5,20 +5,20 @@ import { useState } from "react";
 export default function TicketForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [ticketType, setTicketType] = useState("Standard");
 
-  async function buyTicket() {
-    const res = await fetch("/api/pay", {
+  const handleBuyTicket = async () => {
+    const res = await fetch("/api/initiate-payment", {
       method: "POST",
-      body: JSON.stringify({
-        name,
-        email,
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, phone, ticketType }),
     });
-
     const data = await res.json();
-
-    window.location.href = data.url;
-  }
+    if (data.authorization_url) {
+      window.location.href = data.authorization_url; // redirect to Paystack
+    }
+  };
 
   return (
     <div>
@@ -27,14 +27,24 @@ export default function TicketForm() {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-
       <input
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-
-      <button onClick={buyTicket}>Buy Ticket</button>
+      <input
+        placeholder="Phone"
+        value={phone}
+        onChange={(e) => setPhone(e.target.value)}
+      />
+      <select
+        value={ticketType}
+        onChange={(e) => setTicketType(e.target.value)}
+      >
+        <option>Standard</option>
+        <option>VIP</option>
+      </select>
+      <button onClick={handleBuyTicket}>Buy Ticket</button>
     </div>
   );
 }
