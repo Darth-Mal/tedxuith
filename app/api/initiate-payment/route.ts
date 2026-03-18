@@ -3,7 +3,7 @@ import { supabase } from "@/lib/supabase"; // create this in lib/supabase.ts
 
 export async function POST(req: Request) {
   const { name, email, phone, ticketType } = await req.json();
-  const amount = ticketType === "VIP" ? 500000 : 200000; // kobo
+  const amount = ticketType === "VIP" ? 500000 : 2000000; // kobo
 
   // Save ticket first (paid = false)
   const { data, error } = await supabase
