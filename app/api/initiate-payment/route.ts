@@ -17,14 +17,13 @@ export async function POST(req: Request) {
 
     console.log("✅ Supabase initialized");
 
-    const amount = ticketType === "VIP" ? 500000 : 200000;
+    const amount = ticketType === "VIP" ? 2000000 : 500000;
 
     const { data, error } = await supabase
       .from("tickets")
       .insert({
         name,
         email,
-        phone,
         ticket_type: ticketType,
         amount,
         paid: false,
