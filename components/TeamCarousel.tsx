@@ -29,7 +29,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Tanitoluwa Kola-Akinola",
-    role: "Web Development",
+    role: "Logistics",
     img: "/team/tani.jpg",
   },
   {
@@ -44,12 +44,12 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: "Osborn Gabriel Katung",
-    role: "Publicity (Co-Lead)",
+    role: "Publicity (Co-lead)",
     img: "/team/osborn.jpg",
   },
   {
-    name: "Odule Modesola Elizabeth",
-    role: "Publicity (Co-Lead)",
+    name: "Odule Elizabeth Modesola",
+    role: "Publicity (Co-lead) ",
     img: "/team/odule.jpg",
   },
   {
