@@ -1,22 +1,24 @@
 import Image from "next/image";
-import { Instagram, Linkedin } from "lucide-react"; // Lucide icons
-import { ReactNode } from "react";
+import { Instagram, Linkedin } from "lucide-react";
 
-// Custom X (Twitter rebrand) Icon as SVG component
-const XIcon = ({ size = 20 }: { size?: number }) => (
+// Shared icon type
+type IconType = React.ComponentType<{ size?: number; className?: string }>;
+
+// Custom X (Twitter rebrand) Icon
+const XIcon: IconType = ({ size = 20, className }) => (
   <svg
     width={size}
     height={size}
+    className={className}
     viewBox="0 0 24 24"
     fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
   >
     <path d="M23 3a10.9 10.9 0 0 1-3.14.86 4.48 4.48 0 0 0 1.95-2.48 9.05 9.05 0 0 1-2.83 1.08 4.52 4.52 0 0 0-7.72 4.13A12.84 12.84 0 0 1 1.67 2.15 4.52 4.52 0 0 0 3 9.7a4.41 4.41 0 0 1-2-.55v.06a4.52 4.52 0 0 0 3.63 4.43 4.52 4.52 0 0 1-2 .08 4.52 4.52 0 0 0 4.22 3.14A9.05 9.05 0 0 1 1 19.54 12.78 12.78 0 0 0 7 21c8.29 0 12.82-6.87 12.82-12.82 0-.2 0-.42-.01-.63A9.22 9.22 0 0 0 23 3z" />
   </svg>
 );
 
 const Footer = () => {
-  const socialLinks: { Icon: ReactNode; url: string }[] = [
+  const socialLinks: { Icon: IconType; url: string }[] = [
     {
       Icon: Instagram,
       url: "https://www.instagram.com/tedxuithilorin?igsh=NWF2MWM2MGkxYWo=",
@@ -29,7 +31,6 @@ const Footer = () => {
       Icon: Linkedin,
       url: "https://www.linkedin.com/company/tedxuith-ilorin/",
     },
-    // Replace with actual YouTube link
   ];
 
   return (
@@ -44,7 +45,7 @@ const Footer = () => {
 
         {/* Footer Columns */}
         <div className="w-[90%] mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 border-b border-white/20 pb-16">
-          {/* Column 1: Brand & Intro */}
+          {/* Column 1 */}
           <div className="space-y-4">
             <h4>
               <span className="font-[700] text-4xl">TEDx</span> <br />
@@ -56,7 +57,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Column 2: Navigation */}
+          {/* Column 2 */}
           <div className="flex flex-col space-y-1">
             <h4 className="font-bold text-sm mb-2">Explore</h4>
             {["Speakers", "Attend", "About", "Sponsors"].map((item) => (
@@ -70,7 +71,7 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* Column 3: Legal & Contact */}
+          {/* Column 3 */}
           <div className="flex flex-col space-y-1">
             <h4 className="font-bold text-sm mb-2">Information</h4>
             <a
@@ -90,7 +91,6 @@ const Footer = () => {
 
         {/* Bottom Section */}
         <div className="w-[90%] mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          {/* Disclaimer */}
           <p className="text-xs text-white/50 text-center md:text-left order-2 md:order-1">
             This independent TEDx event is operated under license from TED.{" "}
             <br />© {new Date().getFullYear()} TEDxUITHIlorin. All Rights
@@ -107,11 +107,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="p-2 bg-white/10 rounded-full hover:bg-white hover:text-primary transition-all duration-300"
               >
-                {typeof Icon === "function" ? (
-                  <Icon size={20} />
-                ) : (
-                  <Icon size={20} />
-                )}
+                <Icon size={20} />
               </a>
             ))}
           </div>
