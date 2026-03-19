@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Instagram, Linkedin } from "lucide-react";
+import { Instagram, Linkedin, LucideProps } from "lucide-react";
 
-// Shared icon type
-type IconType = React.ComponentType<{ size?: number; className?: string }>;
+// Shared icon type (matches Lucide exactly)
+type IconType = React.ComponentType<LucideProps>;
 
 // Custom X (Twitter rebrand) Icon
 const XIcon: IconType = ({ size = 20, className }) => (
