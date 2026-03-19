@@ -1,23 +1,51 @@
 import Image from "next/image";
-import { Instagram, Linkedin, Twitter, Youtube, Mail } from "lucide-react"; // Ensure you have lucide-react installed
+import { Instagram, Linkedin } from "lucide-react";
+
+// Shared icon type
+type IconType = React.ComponentType<{ size?: number; className?: string }>;
+
+// Custom X (Twitter rebrand) Icon
+const XIcon: IconType = ({ size = 20, className }) => (
+  <svg
+    width={size}
+    height={size}
+    className={className}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+  >
+    <path d="M23 3a10.9 10.9 0 0 1-3.14.86 4.48 4.48 0 0 0 1.95-2.48 9.05 9.05 0 0 1-2.83 1.08 4.52 4.52 0 0 0-7.72 4.13A12.84 12.84 0 0 1 1.67 2.15 4.52 4.52 0 0 0 3 9.7a4.41 4.41 0 0 1-2-.55v.06a4.52 4.52 0 0 0 3.63 4.43 4.52 4.52 0 0 1-2 .08 4.52 4.52 0 0 0 4.22 3.14A9.05 9.05 0 0 1 1 19.54 12.78 12.78 0 0 0 7 21c8.29 0 12.82-6.87 12.82-12.82 0-.2 0-.42-.01-.63A9.22 9.22 0 0 0 23 3z" />
+  </svg>
+);
 
 const Footer = () => {
+  const socialLinks: { Icon: IconType; url: string }[] = [
+    {
+      Icon: Instagram,
+      url: "https://www.instagram.com/tedxuithilorin?igsh=NWF2MWM2MGkxYWo=",
+    },
+    {
+      Icon: XIcon,
+      url: "https://x.com/TEDxUITH_Ilorin?t=I_Nlt3d6tk1NBhFUGBIv9w&s=09",
+    },
+    {
+      Icon: Linkedin,
+      url: "https://www.linkedin.com/company/tedxuith-ilorin/",
+    },
+  ];
+
   return (
     <footer className="h-full w-full">
-      {/* Main Container - Preserving your layout classes */}
-      <div className="bg-primary rounded-t-[100px] w-full min-h-full flex flex-col items-center pt-[55px] pb-2 ">
-        {/* --- YOUR ORIGINAL BUTTON SECTION --- */}
-        {/* I added bg-white/text-primary to make the button pop against the primary background */}
+      <div className="bg-primary rounded-t-[100px] w-full min-h-full flex flex-col items-center pt-[55px] pb-2">
+        {/* Register Button */}
         <button className="w-[90%] text-white hover:text-primary hover:bg-gray-100 transition-colors duration-300 rounded-[50px] h-20 text-4xl flex flex-col items-center justify-center shadow-lg">
-          <h3 className="font-main-italic m-0 text-4xl text-inherit ">
+          <h3 className="font-main-italic m-0 text-4xl text-inherit">
             Register
           </h3>
         </button>
 
-        {/* --- NEW CONTENT BELOW --- */}
-
+        {/* Footer Columns */}
         <div className="w-[90%] mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 border-b border-white/20 pb-16">
-          {/* Column 1: Brand & Intro */}
+          {/* Column 1 */}
           <div className="space-y-4">
             <h4>
               <span className="font-[700] text-4xl">TEDx</span> <br />
@@ -29,31 +57,23 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Column 2: Navigation */}
+          {/* Column 2 */}
           <div className="flex flex-col space-y-1">
             <h4 className="font-bold text-sm mb-2">Explore</h4>
-            {["Speakers", "Schedule", "About Us", "Partners", "Team"].map(
-              (item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(" ", "-")}`}
-                  className="text-white/70 hover:text-white transition-colors text-[12px]"
-                >
-                  {item}
-                </a>
-              ),
-            )}
+            {["Speakers", "Attend", "About", "Sponsors"].map((item) => (
+              <a
+                key={item}
+                href={`/${item.toLowerCase().replace(" ", "-")}`}
+                className="text-white/70 hover:text-white transition-colors text-[12px]"
+              >
+                {item}
+              </a>
+            ))}
           </div>
 
-          {/* Column 3: Legal & Contact */}
+          {/* Column 3 */}
           <div className="flex flex-col space-y-1">
             <h4 className="font-bold text-sm mb-2">Information</h4>
-            <a
-              href="/nominate"
-              className="text-white/70 hover:text-white transition-colors text-[12px]"
-            >
-              Nominate a Speaker
-            </a>
             <a
               href="/contact"
               className="text-white/70 hover:text-white transition-colors text-[12px]"
@@ -67,38 +87,24 @@ const Footer = () => {
               Privacy Policy
             </a>
           </div>
-
-          {/* Column 4: Newsletter */}
-          {/* <div className="space-y-4">
-            <h4 className="font-bold text-lg">Stay Updated</h4>
-            <div className="flex flex-col gap-3">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:border-white placeholder:text-white/50"
-              />
-              <button className="px-6 py-2 bg-black text-white rounded-xl font-bold hover:bg-gray-900 transition-colors uppercase text-sm tracking-widest">
-                Subscribe
-              </button>
-            </div>
-          </div> */}
         </div>
 
-        {/* --- BOTTOM SECTION --- */}
+        {/* Bottom Section */}
         <div className="w-[90%] mt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          {/* Mandatory TEDx Disclaimer */}
           <p className="text-xs text-white/50 text-center md:text-left order-2 md:order-1">
             This independent TEDx event is operated under license from TED.{" "}
-            <br />© {new Date().getFullYear()} TEDxEventName. All Rights
+            <br />© {new Date().getFullYear()} TEDxUITHIlorin. All Rights
             Reserved.
           </p>
 
           {/* Social Icons */}
           <div className="flex gap-4 order-1 md:order-2">
-            {[Instagram, Twitter, Linkedin, Youtube].map((Icon, i) => (
+            {socialLinks.map(({ Icon, url }, i) => (
               <a
                 key={i}
-                href="#"
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-2 bg-white/10 rounded-full hover:bg-white hover:text-primary transition-all duration-300"
               >
                 <Icon size={20} />

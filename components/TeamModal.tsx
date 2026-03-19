@@ -16,8 +16,9 @@ const TEAM_DATA: Record<
   string,
   { leadName: string; statement: string; members: { name: string }[] }
 > = {
-  "Publicity & Content Team": {
-    leadName: "Osborn Gabriel Katung (Co-Lead, Publicity Team)",
+  "Publicity (Co-lead) Team": {
+    leadName: " Odule Elizabeth Modesola (Co-Lead)",
+
     statement:
       "Our team is focused on promoting TEDxUITH Ilorin through publicity and content creation.",
     members: [
@@ -35,25 +36,25 @@ const TEAM_DATA: Record<
     ],
   },
 
-  "Publicity & Content Team2": {
-    leadName: "Odule Elizabeth Modesola (Publicity Co-Lead)",
-    statement:
-      "Our team is focused on promoting TEDxUITH Ilorin through publicity and content creation.",
-    members: [
-      { name: "Jolayemi Ayomide" },
-      { name: "Oluwadamilare David" },
-      { name: "Aliyu Taimiyyah Abdullahi" },
-      { name: "Tetsola Marvellous" },
-      { name: "Ogundele Eunice" },
-      { name: "Abolarin Oluwabusolami Ayotomiwa" },
-      { name: "Ibikunle Aishah Adekemi" },
-      { name: "Yusuf Umuani" },
-      { name: "Abdulaziz Ahmad" },
-      { name: "Ashraff Samuel-Patrick" },
-      { name: "Deniran Charity" },
-    ],
-  },
-  "Media & Audiovisual Team": {
+  // "Publicity (Co-lead) Team": {
+  //   leadName: "Odule Elizabeth Modesola (Publicity Co-Lead)",
+  //   statement:
+  //     "Our team is focused on promoting TEDxUITH Ilorin through publicity and content creation.",
+  //   members: [
+  //     { name: "Jolayemi Ayomide" },
+  //     { name: "Oluwadamilare David" },
+  //     { name: "Aliyu Taimiyyah Abdullahi" },
+  //     { name: "Tetsola Marvellous" },
+  //     { name: "Ogundele Eunice" },
+  //     { name: "Abolarin Oluwabusolami Ayotomiwa" },
+  //     { name: "Ibikunle Aishah Adekemi" },
+  //     { name: "Yusuf Umuani" },
+  //     { name: "Abdulaziz Ahmad" },
+  //     { name: "Ashraff Samuel-Patrick" },
+  //     { name: "Deniran Charity" },
+  //   ],
+  // },
+  "Media and Audiovisual Team": {
     leadName: "Oyinloye Oluwadamilare Samuel",
     statement:
       "Our team handles all media and audiovisual needs for TEDxUITH Ilorin.",
