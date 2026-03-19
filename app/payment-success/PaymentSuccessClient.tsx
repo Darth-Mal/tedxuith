@@ -6,13 +6,13 @@ import { useEffect, useState } from "react";
 type PaymentStatus = {
   success: boolean;
   message?: string;
-  ticketId?: string;
+  ticketSerial?: string;
   qrCode?: string;
 };
 
 export default function PaymentSuccessClient() {
   const searchParams = useSearchParams();
-  const reference = searchParams.get("reference");
+  const reference = searchParams.get("reference"); // Paystack reference
 
   const [status, setStatus] = useState<PaymentStatus | null>(null);
   const [loading, setLoading] = useState(true);
@@ -24,20 +24,24 @@ export default function PaymentSuccessClient() {
       return;
     }
 
-    fetch(`/api/verify-payment?reference=${reference}`)
+    // POST to verify-payment with Paystack reference
+    fetch("/api/verify-payment", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ticketReference: reference }),
+    })
       .then((res) => res.json())
       .then((data) => {
-        // If API returned success & ticket info
         if (data.success) {
           setStatus({
             success: true,
-            ticketId: data.ticketId,
+            ticketSerial: data.ticketSerial,
             qrCode: data.qrCode,
           });
         } else {
           setStatus({
             success: false,
-            message: data.error || "Payment failed.",
+            message: data.error || "Payment verification failed.",
           });
         }
       })
@@ -68,7 +72,7 @@ export default function PaymentSuccessClient() {
       {status?.success ? (
         <>
           <p className="text-lg text-gray-800 mb-4">
-            Ticket ID: {status.ticketId}
+            Ticket ID: {status.ticketSerial}
           </p>
           {status.qrCode && (
             <img src={status.qrCode} alt="Your Ticket QR Code" />

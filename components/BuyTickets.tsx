@@ -5,14 +5,13 @@ import { useState } from "react";
 export default function TicketForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
   const [ticketType, setTicketType] = useState("Standard");
 
   const handleBuyTicket = async () => {
     const res = await fetch("/api/initiate-payment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, phone, ticketType }),
+      body: JSON.stringify({ name, email, ticketType }),
     });
     const data = await res.json();
     if (data.authorization_url) {
@@ -32,11 +31,7 @@ export default function TicketForm() {
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
-      <input
-        placeholder="Phone"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-      />
+
       <select
         value={ticketType}
         onChange={(e) => setTicketType(e.target.value)}
