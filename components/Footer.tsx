@@ -1,5 +1,9 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { Instagram, Linkedin, LucideProps } from "lucide-react";
+import TicketModal from "@/components/BuyTickets";
 
 // Shared icon type (matches Lucide exactly)
 type IconType = React.ComponentType<LucideProps>;
@@ -7,17 +11,24 @@ type IconType = React.ComponentType<LucideProps>;
 // Custom X (Twitter rebrand) Icon
 const XIcon: IconType = ({ size = 20, className }) => (
   <svg
-    width={size}
-    height={size}
-    className={className}
+    width="28"
+    height="28"
     viewBox="0 0 24 24"
-    fill="currentColor"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
   >
-    <path d="M23 3a10.9 10.9 0 0 1-3.14.86 4.48 4.48 0 0 0 1.95-2.48 9.05 9.05 0 0 1-2.83 1.08 4.52 4.52 0 0 0-7.72 4.13A12.84 12.84 0 0 1 1.67 2.15 4.52 4.52 0 0 0 3 9.7a4.41 4.41 0 0 1-2-.55v.06a4.52 4.52 0 0 0 3.63 4.43 4.52 4.52 0 0 1-2 .08 4.52 4.52 0 0 0 4.22 3.14A9.05 9.05 0 0 1 1 19.54 12.78 12.78 0 0 0 7 21c8.29 0 12.82-6.87 12.82-12.82 0-.2 0-.42-.01-.63A9.22 9.22 0 0 0 23 3z" />
+    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
   </svg>
 );
 
 const Footer = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const socialLinks: { Icon: IconType; url: string }[] = [
     {
       Icon: Instagram,
@@ -37,7 +48,10 @@ const Footer = () => {
     <footer className="h-full w-full">
       <div className="bg-primary rounded-t-[100px] w-full min-h-full flex flex-col items-center pt-[55px] pb-2">
         {/* Register Button */}
-        <button className="w-[90%] text-white hover:text-primary hover:bg-gray-100 transition-colors duration-300 rounded-[50px] h-20 text-4xl flex flex-col items-center justify-center shadow-lg">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="w-[90%] text-white hover:text-primary hover:bg-gray-100 transition-colors duration-300 rounded-[50px] h-20 text-4xl flex flex-col items-center justify-center shadow-lg"
+        >
           <h3 className="font-main-italic m-0 text-4xl text-inherit">
             Register
           </h3>
@@ -112,6 +126,12 @@ const Footer = () => {
             ))}
           </div>
         </div>
+
+        {/* Ticket Modal */}
+        <TicketModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+        />
       </div>
     </footer>
   );

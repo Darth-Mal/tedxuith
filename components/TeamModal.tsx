@@ -16,11 +16,10 @@ const TEAM_DATA: Record<
   string,
   { leadName: string; statement: string; members: { name: string }[] }
 > = {
-  "Publicity (Co-lead) Team": {
-    leadName: " Odule Elizabeth Modesola (Co-Lead)",
-
+  "Publicity (Co - lead) Team": {
+    leadName: "Osborn Gabriel Katung (Co-Lead)",
     statement:
-      "Our team is focused on promoting TEDxUITH Ilorin through publicity and content creation.",
+      "It’s been such an amazing experience—one of my most enjoyable publicity roles yet. The decentralized workflow and the scale of the event made it even more special. I love seeing communication, creativity, and collaboration come together so beautifully",
     members: [
       { name: "Jolayemi Ayomide" },
       { name: "Oluwadamilare David" },
@@ -36,28 +35,28 @@ const TEAM_DATA: Record<
     ],
   },
 
-  // "Publicity (Co-lead) Team": {
-  //   leadName: "Odule Elizabeth Modesola (Publicity Co-Lead)",
-  //   statement:
-  //     "Our team is focused on promoting TEDxUITH Ilorin through publicity and content creation.",
-  //   members: [
-  //     { name: "Jolayemi Ayomide" },
-  //     { name: "Oluwadamilare David" },
-  //     { name: "Aliyu Taimiyyah Abdullahi" },
-  //     { name: "Tetsola Marvellous" },
-  //     { name: "Ogundele Eunice" },
-  //     { name: "Abolarin Oluwabusolami Ayotomiwa" },
-  //     { name: "Ibikunle Aishah Adekemi" },
-  //     { name: "Yusuf Umuani" },
-  //     { name: "Abdulaziz Ahmad" },
-  //     { name: "Ashraff Samuel-Patrick" },
-  //     { name: "Deniran Charity" },
-  //   ],
-  // },
+  "Publicity (Co-lead) Team": {
+    leadName: "Odule Elizabeth Modesola (Co-Lead)",
+    statement:
+      "I love having great conversations and it was a no brainer that I’ll sign up to be part of an event where different people from different backgrounds can come together to share their thoughts and experiences. So far, I’ve genuinely enjoyed curating and executing publicity ideas alongside my team members to make the event known as much as possible.",
+    members: [
+      { name: "Jolayemi Ayomide" },
+      { name: "Oluwadamilare David" },
+      { name: "Aliyu Taimiyyah Abdullahi" },
+      { name: "Tetsola Marvellous" },
+      { name: "Ogundele Eunice" },
+      { name: "Abolarin Oluwabusolami Ayotomiwa" },
+      { name: "Ibikunle Aishah Adekemi" },
+      { name: "Yusuf Umuani" },
+      { name: "Abdulaziz Ahmad" },
+      { name: "Ashraff Samuel-Patrick" },
+      { name: "Deniran Charity" },
+    ],
+  },
   "Media and Audiovisual Team": {
     leadName: "Oyinloye Oluwadamilare Samuel",
     statement:
-      "Our team handles all media and audiovisual needs for TEDxUITH Ilorin.",
+      "Serving as the Media and Audiovisual Lead for TEDx UITH has been a great experience. I have been involved in coordinating different creative teams and I look forward to managing the sound, lighting, and visual production, and ensuring seamless technical delivery at the event.",
     members: [
       { name: "Tolulope Oluropo" },
       { name: "Jedidiah Uzodinma" },
@@ -75,7 +74,7 @@ const TEAM_DATA: Record<
   "Welfare Team": {
     leadName: "Ayomide Rotimi Evelyn (Team Lead)",
     statement:
-      "Our team ensures the welfare of all TEDxUITH Ilorin participants and team members.",
+      "On the welfare side of TEDxUITH, organizing was refreshingly hassle-free and enjoyable. With just routine online meetings, light coordination, and the most amazing team members, I genuinely loved bringing it all together.",
     members: [
       { name: "Ohajunwa John" },
       { name: "Bolanle Alimi" },
@@ -89,7 +88,7 @@ const TEAM_DATA: Record<
   "Fundraising Team": {
     leadName: "Adu Samuel Jesutofunmi (Team Lead)",
     statement:
-      "Our team manages sponsorships and partnerships for TEDxUITH Ilorin.",
+      "Spearheading the Sponsorship and Partnership team was an exercise in relationship-building and strategic advocacy. Our task was critical: securing the resources necessary to bring the vision of TEDxUITH Ilorin to life. It was rewarding to connect with partners who believed in our mission, turning fundraising challenges into successful collaborations that fueled this transformative event.",
     members: [
       { name: "Adesina Titilayo Deborah" },
       { name: "Ajisafe Francis" },
@@ -99,7 +98,7 @@ const TEAM_DATA: Record<
   "Web Development Team": {
     leadName: "Malomo Victor Ayooluwa",
     statement:
-      "Our team builds and maintains the TEDxUITH Ilorin website and digital platforms.",
+      "As the Web Development Team Lead, I led the journey of turning my brainchild into a fully realized digital experience for TEDxUITH Ilorin. What began as a simple idea grew into a fast, intuitive platform that reflects the excellent spirit of TEDx. Along the way, I built, debugged, and refined every detail, I’m especially grateful to our web designer for always showing up—even on impromptu calls—to bring part of the vision to life. And if everything looks effortless now, just know the bugs and I had several “meetings” before this version 🙂",
     members: [
       { name: "Salawu Olamilekan" },
       // { name: "Oyinloye Olanrewaju Joseph" },
@@ -110,21 +109,59 @@ const TEAM_DATA: Record<
     statement: "Our team ensures all logistics run smoothly during events.",
     members: [{ name: "Ajayi Emmanuel" }],
   },
-  "Branding & Design Team": {
-    leadName: "Team Lead",
-    statement:
-      "Our team designs TEDxUITH Ilorin's branding and creative materials.",
-    members: [
-      { name: "Akinsipe Simileoluwa" },
-      { name: "Babalola Moyinoluwa" },
-      { name: "Rofiat Amuda" },
-      { name: "Elias Ojo" },
-    ],
-  },
+  // "Branding & Design Team": {
+  //   leadName: "Team Lead",
+  //   statement:
+  //     "Our team designs TEDxUITH Ilorin's branding and creative materials.",
+  //   members: [
+  //     { name: "Akinsipe Simileoluwa" },
+  //     { name: "Babalola Moyinoluwa" },
+  //     { name: "Rofiat Amuda" },
+  //     { name: "Elias Ojo" },
+  //   ],
+  // },
   "Social Media Management Team": {
     leadName: "Olamide Ojediran",
-    statement: "Our team manages TEDxUITH Ilorin's social media presence.",
+    statement:
+      "Overseeing TEDxUITH Ilorin's social media pages has been a wholesome experience. We've faced challenges such as increasing social media engagement and reach but asides that, there's been a steady growth in our online communities and that's been awesome.",
     members: [{ name: "Lucky Flourish Abisola" }, { name: "David Japheth" }],
+  },
+
+  "Lead Organizer / Licensee Team": {
+    leadName: "Oyesola Victor",
+    statement:
+      "The idea of TEDxUITH Ilorin came from the desire to bring a distinct level of exposure to our student and young professional community by sharing groundbreaking ideas and having intellectual conversations. Leading the team has been a passionate journey, focused on delivering a transformative, clarity-driven event experience.",
+    members: [
+      { name: "Ola-Dahunsi Mercy Tomishola (General Secretary)" },
+      { name: " Osborn Gabriel Katung (Publicity Co-lead)" },
+      { name: "Odule Elizabeth Modesola (Publicity Co-lead)" },
+      { name: " Victor Ayooluwa Malomo (Web Developmetn Lead)" },
+      {
+        name: " Oyinloye Oluwadamilare Samuel (Media and Audio-visual Team Lead)",
+      },
+      { name: "Rotimi Evelyn Ayomide (Welfare Team Lead)" },
+      { name: "Olamide Ojediran (Social Media Management Team Lead)" },
+      { name: "Adu Samuel Oluwatomisin (Fundraising Team Lead)" },
+      { name: "Tanitoluwa Kola-Akinola (Logistics Team Lead)" },
+    ],
+  },
+
+  "General Secretary Team": {
+    leadName: "Ola-Dahunsi Mercy Tomishola",
+    statement:
+      "Serving as the General Secretary was a profound experience in meticulous organization and strategic communication. My primary focus was ensuring every piece of documentation and correspondence flowed seamlessly, keeping the entire team aligned and on track. It was incredibly fulfilling to be the central point connecting all the moving parts of TEDxUITH Ilorin, contributing to the clarity and professionalism of our operations.",
+    members: [
+      { name: " Osborn Gabriel Katung (Publicity Co-lead)" },
+      { name: "Odule Elizabeth Modesola (Publicity Co-lead)" },
+      { name: " Victor Ayooluwa Malomo (Web Developmetn Lead)" },
+      {
+        name: " Oyinloye Oluwadamilare Samuel (Media and Audio-visual Team Lead)",
+      },
+      { name: "Rotimi Evelyn Ayomide (Welfare Team Lead)" },
+      { name: "Olamide Ojediran (Social Media Management Team Lead)" },
+      { name: "Adu Samuel Oluwatomisin (Fundraising Team Lead)" },
+      { name: "Tanitoluwa Kola-Akinola (Logistics Team Lead)" },
+    ],
   },
 };
 
