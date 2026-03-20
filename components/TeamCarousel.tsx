@@ -43,15 +43,16 @@ const teamMembers: TeamMember[] = [
     img: "/team/lamlam.jpg",
   },
   {
-    name: "Osborn Gabriel Katung",
-    role: "Publicity (Co-lead)",
-    img: "/team/osborn.jpg",
-  },
-  {
     name: "Odule Elizabeth Modesola",
-    role: "Publicity (Co-lead) ",
+    role: "Publicity (Co-lead)",
     img: "/team/odule.jpg",
   },
+  {
+    name: "Osborn Gabriel Katung",
+    role: "Publicity (Co - lead)",
+    img: "/team/osborn.jpg",
+  },
+
   {
     name: "Rotimi Ayomide Evelyn",
     role: "Welfare",

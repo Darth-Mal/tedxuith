@@ -17,7 +17,7 @@ export async function POST(req: Request) {
 
     console.log("✅ Supabase initialized");
 
-    const amount = ticketType === "VIP" ? 2000000 : 500000;
+    const amount = ticketType === "VIP" ? 2000000 : 450000;
 
     const { data, error } = await supabase
       .from("tickets")
