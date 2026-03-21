@@ -13,7 +13,7 @@ const AttendPage = () => {
       <section className="relative flex w-full centered pt-[80px] overflow-hidden">
         <Image
           className="h-[400px] w-[400px]"
-          src={"/IMG-20260214-WA0019.jpg"}
+          src={"/COMPASS-LAUNCH1.jpg"}
           width={100}
           height={100}
           alt="flyer"
@@ -92,7 +92,7 @@ const AttendPage = () => {
         </div>
       </section>
 
-      <section>
+      <section className="mb-20">
         <div>
           <Countdown></Countdown>
         </div>
