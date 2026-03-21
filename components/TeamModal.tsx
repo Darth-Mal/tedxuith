@@ -100,7 +100,7 @@ const TEAM_DATA: Record<
     statement:
       "As the Web Development Team Lead, I led the journey of turning my brainchild into a fully realized digital experience for TEDxUITH Ilorin. What began as a simple idea grew into a fast, intuitive platform that reflects the excellent spirit of TEDx. Along the way, I built, debugged, and refined every detail, I’m especially grateful to our web designer for always showing up—even on impromptu calls—to bring part of the vision to life. And if everything looks effortless now, just know the bugs and I had several “meetings” before this version 🙂",
     members: [
-      { name: "Salawu Olamilekan" },
+      { name: "Salawu Olamilekan (UI/UX Designer)" },
       // { name: "Oyinloye Olanrewaju Joseph" },
     ],
   },
@@ -135,7 +135,7 @@ const TEAM_DATA: Record<
       { name: "Ola-Dahunsi Mercy Tomishola (General Secretary)" },
       { name: " Osborn Gabriel Katung (Publicity Co-lead)" },
       { name: "Odule Elizabeth Modesola (Publicity Co-lead)" },
-      { name: " Victor Ayooluwa Malomo (Web Developmetn Lead)" },
+      { name: " Victor Ayooluwa Malomo (Web Development Lead)" },
       {
         name: " Oyinloye Oluwadamilare Samuel (Media and Audio-visual Team Lead)",
       },

@@ -243,22 +243,14 @@ export default function Home() {
             ref={layer2BodyRef}
             className="sm:text-xl text-2xl text-bold opacity-0"
           >
-            A tool for finding{" "}
-            <span>
-              <i className="text-primary">direction</i>
+            We’ve all been there — uncertainty, curiousity, standing at the edge
+            of a decision that feels bigger than we’re ready for. <br /> This
+            isn’t an event that hands you a map. <br /> It’s an experience that
+            embraces uncertainty, offering ideas, stories, and connections that
+            make moving forward feel less intimidating. You’re not lost. <br />
+            <span className="text-primary font-extrabold">
+              You’re just finding your true north.
             </span>
-            <br />
-            when the path is unclear. <br />
-            <br /> Not to tell you where to go, <br />
-            but to help you decide{" "}
-            <span>
-              <i className="text-primary">why.</i>
-            </span>{" "}
-            <br />
-            <br />
-            Guidng you to ideas that
-            <br /> spark curiosity and <br />
-            <i className="text-primary font-bold"> shape the future.</i>
           </p>
         </div>
 

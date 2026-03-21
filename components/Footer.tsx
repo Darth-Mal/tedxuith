@@ -46,11 +46,11 @@ const Footer = () => {
 
   return (
     <footer className="h-full w-full">
-      <div className="bg-primary rounded-t-[100px] w-full min-h-full flex flex-col items-center pt-[55px] pb-2">
+      <div className="bg-primary rounded-t-[50px] sm:rounded-t-[100px] w-full min-h-full flex flex-col items-center pt-[55px] pb-2">
         {/* Register Button */}
         <button
           onClick={() => setIsModalOpen(true)}
-          className="w-[90%] text-white hover:text-primary hover:bg-gray-100 transition-colors duration-300 rounded-[50px] h-20 text-4xl flex flex-col items-center justify-center shadow-lg"
+          className="w-[90%] -translate-y-8 sm:translate-y-0 text-white hover:text-primary hover:bg-gray-100 transition-colors duration-300 rounded-[50px] h-20 text-4xl flex flex-col items-center justify-center shadow-lg"
         >
           <h3 className="font-main-italic m-0 text-4xl text-inherit">
             Register
