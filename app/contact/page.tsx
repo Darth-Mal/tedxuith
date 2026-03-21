@@ -60,7 +60,7 @@ const ContactSection = () => {
         {/* Left Side */}
         <div className="flex flex-col justify-center space-y-12 pt-8 lg:pt-20">
           <div>
-            <h1 className="font-main-italic text-left text-5xl md:text-7xl leading-tight">
+            <h1 className="font-main-italic text-left text-5xl md:text-7xl max-sm:mt-20 leading-tight">
               Get in touch
               <br />
               <span className="text-[#E62B1E]">with us</span>
