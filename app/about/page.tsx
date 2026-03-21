@@ -105,13 +105,14 @@ const Page = () => {
           </h1>
           <p className="font-sans text-center text-md sm:max-w-1/2 max-w-[90%] text-black ">
             <span className="text-primary font-bold ">TEDx</span>
-            UITHIlorin is an independently organized TEDx event based at the
-            University of Ilorin Teaching Hospital. It is dedicated to
-            showcasing powerful ideas, innovative thinking, and diverse
-            perspectives from within Ilorin and beyond. By bringing together
-            students, professionals, creatives, and changemakers, TEDxUITHIlorin
-            aims to inspire curiosity, encourage dialogue, and spark ideas that
-            can shape the future of healthcare, society, and innovation.
+            UITHIlorin was born from a simple belief; that some of the most
+            powerful ideas in the world are sitting right here, in the minds of
+            the people around us. Students figuring out their next step,
+            professionals who’ve learned something the textbooks never taught,
+            creatives who see problems differently. We built this space for all
+            of them! To gather every curious, passionate, and quietly brilliant
+            mind from Ilorin and beyond, and give their ideas room to breathe,
+            collide, and grow into something that truly matters.
           </p>
         </div>
       </div>
@@ -136,12 +137,15 @@ const Page = () => {
             className=" max-md:mt-6 sm:pe-5 text-center sm:max-w-1/2 max-w-[85%] text-white sm:w-[50%] flex justify-center items-center sm:block"
           >
             <p className="text-md">
-              Our mission at{" "}
-              <span className="text-primary font-bold">TEDx</span>UITHIlorin is
-              to ignite curiosity, amplify bold ideas, and bring diverse voices
-              together to spark conversation, challenge perspectives, and
-              inspire meaningful change—empowering the UITH community and beyond
-              to think differently, act boldly, and shape a better future.
+              Although not easy, our mission is simple; to create a room where
+              people leave thinking differently than when they walked in. At
+              <span className="text-primary font-bold"> TEDx</span>UITHIlorin,
+              we believe that curiosity is contagious, that one honest
+              conversation can shift a perspective, and that the right idea,
+              heard at the right moment, can change the entire direction of a
+              life. We’re here to start those conversations; for the UITH
+              community, for Ilorin, and for everyone brave enough to show up
+              with an open mind!
             </p>
           </div>
         </div>

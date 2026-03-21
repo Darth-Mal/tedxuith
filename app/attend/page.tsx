@@ -13,7 +13,7 @@ const AttendPage = () => {
       <section className="relative flex w-full centered pt-[80px] overflow-hidden">
         <Image
           className="h-[400px] w-[400px]"
-          src={"/IMG-20260214-WA0019.jpg"}
+          src={"/COMPASS-LAUNCH1.jpg"}
           width={100}
           height={100}
           alt="flyer"
@@ -39,7 +39,7 @@ const AttendPage = () => {
         <div className="h-screen bg-primary w-full sm:grid sm:grid-cols-[1fr_auto_1fr] gap-4 py-15 sm:px-[72px] flex flex-col px-10">
           <div className="grid grid-rows-3-[1fr_auto_1fr] h-[80%] w-[90%] gap-4">
             <h1 className="text-[50px] text-left m-0 leading-15 sm:text-[70px]">
-              Tedx <br /> UITHILORIN:
+              TEDx <br /> UITHILORIN:
             </h1>
             <div className="bg-white h-[1px] w-full m-0"></div>
             <h1 className=" m-0 text-[80px] text-left font-main-italic leading-none">
@@ -62,13 +62,13 @@ const AttendPage = () => {
               <div className="gap-[9px]">
                 <h3 className="font-main-italic text-left m-0">Time</h3>
                 <div className="w-full h-[1px] bg-white"></div>
-                <p>2:00PM</p>
+                <p>To Be Announced</p>
               </div>
             </div>
             <div>
               <h3 className="font-main-italic text-left m-0">Venue</h3>
               <div className="w-full h-[1px] bg-white"></div>
-              <p>Multipurpose Hall, University of Ilorin</p>
+              <p>To Be Announced</p>
             </div>
 
             {/* REGISTER BUTTON */}
@@ -92,7 +92,7 @@ const AttendPage = () => {
         </div>
       </section>
 
-      <section>
+      <section className="mb-20">
         <div>
           <Countdown></Countdown>
         </div>

@@ -60,10 +60,10 @@ const ContactSection = () => {
         {/* Left Side */}
         <div className="flex flex-col justify-center space-y-12 pt-8 lg:pt-20">
           <div>
-            <h1 className="font-main-italic text-left text-5xl md:text-7xl leading-tight">
+            <h1 className="font-main-italic text-left text-5xl md:text-7xl max-sm:mt-20 leading-tight">
               Get in touch
               <br />
-              <span className="text-[#E62B1E]">With us</span>
+              <span className="text-[#E62B1E]">with us</span>
             </h1>
           </div>
           <div className="space-y-8">
@@ -78,13 +78,34 @@ const ContactSection = () => {
                 Socials
               </h3>
               <div className="flex space-x-6">
-                <a href="#" className="hover:text-[#E62B1E] transition-colors">
+                <a
+                  href="https://www.linkedin.com/company/tedxuith-ilorin/"
+                  className="hover:text-[#E62B1E] transition-colors"
+                >
                   <Linkedin size={28} />
                 </a>
-                <a href="#" className="hover:text-[#E62B1E] transition-colors">
-                  <Twitter size={28} />
+                <a
+                  href="https://x.com/TEDxUITH_Ilorin?t=I_Nlt3d6tk1NBhFUGBIv9w&s=09"
+                  className="hover:text-[#E62B1E] transition-colors"
+                >
+                  <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                  </svg>
                 </a>
-                <a href="#" className="hover:text-[#E62B1E] transition-colors">
+                <a
+                  href="https://www.instagram.com/tedxuithilorin?igsh=NWF2MWM2MGkxYWo="
+                  className="hover:text-[#E62B1E] transition-colors"
+                >
                   <Instagram size={28} />
                 </a>
               </div>
