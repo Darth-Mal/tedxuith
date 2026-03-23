@@ -82,7 +82,7 @@ const Page = () => {
           About
           <span className="text-primary font-extrabold"> TEDx</span>
         </h1>
-        <p className="font-sans text-md text-center sm:max-w-1/2 max-w-[90%]">
+        <p className="font-sans text-xl text-center sm:max-w-1/2 max-w-[90%]">
           <span className="text-primary font-bold">TEDx</span> is a global
           program of independently organized events inspired by TED’s mission of
           ideas worth spreading. TEDx events bring people together to share
@@ -103,7 +103,7 @@ const Page = () => {
             About
             <span className="text-primary font-extrabold"> TEDx</span>UITHIlorin
           </h1>
-          <p className="font-sans text-center text-md sm:max-w-1/2 max-w-[90%] text-black ">
+          <p className="font-sans text-center text-xl sm:max-w-1/2 max-w-[90%] text-black ">
             <span className="text-primary font-bold ">TEDx</span>
             UITHIlorin was born from a simple belief; that some of the most
             powerful ideas in the world are sitting right here, in the minds of
@@ -136,7 +136,7 @@ const Page = () => {
             ref={missionRef}
             className=" max-md:mt-6 sm:pe-5 text-center sm:max-w-1/2 max-w-[85%] text-white sm:w-[50%] flex justify-center items-center sm:block"
           >
-            <p className="text-md">
+            <p className="text-lg">
               Although not easy, our mission is simple; to create a room where
               people leave thinking differently than when they walked in. At
               <span className="text-primary font-bold"> TEDx</span>UITHIlorin,

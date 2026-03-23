@@ -141,8 +141,8 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
                 </div>
 
                 {/* Image placeholder */}
-                <div className="h-20 bg-gray-200 rounded-lg flex items-center justify-center text-sm text-gray-500">
-                  <img src="/stdticket.png" alt="" />
+                <div className="mt-2 h-20 bg-gray-200 rounded-lg flex items-center justify-center text-sm text-gray-500">
+                  <img src="/tickets/stdticket.png" alt="" />
                 </div>
 
                 <div className="mt-3 text-xs text-gray-600">
@@ -187,8 +187,8 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
                 </div>
 
                 {/* Image placeholder */}
-                <div className="h-20 bg-gray-200 rounded-lg flex items-center justify-center text-sm text-gray-500">
-                  <img src="/vipticket.png" alt="" />
+                <div className="h-20 mt-2 bg-gray-200 rounded-lg flex items-center justify-center text-sm text-gray-500">
+                  <img src="/tickets/vipticket.png" alt="" />
                 </div>
 
                 <div className="mt-3 text-xs text-gray-600">

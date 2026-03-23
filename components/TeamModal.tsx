@@ -106,7 +106,8 @@ const TEAM_DATA: Record<
   },
   "Logistics Team": {
     leadName: "Tanitoluwa Kola-Akinola",
-    statement: "Our team ensures all logistics run smoothly during events.",
+    statement:
+      "Being heavily involved in the backend of an event that can change the way people approach their lives and careers is nothing short of exciting. I am grateful for every minute I spend working with this team and hope for even better days ahead",
     members: [{ name: "Ajayi Emmanuel" }],
   },
   // "Branding & Design Team": {
@@ -153,7 +154,7 @@ const TEAM_DATA: Record<
     members: [
       { name: " Osborn Gabriel Katung (Publicity Co-lead)" },
       { name: "Odule Elizabeth Modesola (Publicity Co-lead)" },
-      { name: " Victor Ayooluwa Malomo (Web Developmetn Lead)" },
+      { name: " Victor Ayooluwa Malomo (Web Development Lead)" },
       {
         name: " Oyinloye Oluwadamilare Samuel (Media and Audio-visual Team Lead)",
       },
