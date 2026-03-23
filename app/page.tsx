@@ -241,13 +241,14 @@ export default function Home() {
           </h3>
           <p
             ref={layer2BodyRef}
-            className="sm:text-xl text-2xl text-bold opacity-0"
+            className="sm:text-xl text-[16px] text-bold opacity-0 max-w-[90vw]"
           >
             We’ve all been there — uncertainty, curiousity, standing at the edge
-            of a decision that feels bigger than we’re ready for. <br /> This
-            isn’t an event that hands you a map. <br /> It’s an experience that
-            embraces uncertainty, offering ideas, stories, and connections that
-            make moving forward feel less intimidating. You’re not lost. <br />
+            of a decision that feels bigger than we’re ready for. <br /> <br />{" "}
+            This isn’t an event that hands you a map. <br /> <br /> It’s an
+            experience that embraces uncertainty, offering ideas, stories, and
+            connections that make moving forward feel less intimidating. <br />{" "}
+            <br /> You’re not lost. <br /> <br />
             <span className="text-primary font-extrabold">
               You’re just finding your true north.
             </span>
@@ -258,7 +259,7 @@ export default function Home() {
           ref={layer3Ref}
           className="absolute inset-0 z-10 flex flex-col items-center justify-center opacity-0 will-change-transform"
         >
-          <p className="sm:text-xl text-2xl text-center w-[80vw]">
+          <p className="sm:text-xl text-xl text-center w-[80vw]">
             <span className="text-primary font-extrabold">TEDx</span>UITHIlorin
             is where ideas meet action. <br />
             <br />
