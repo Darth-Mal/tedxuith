@@ -73,6 +73,7 @@ const AttendPage = () => {
 
             {/* REGISTER BUTTON */}
             <button
+              id="register"
               onClick={() => setIsModalOpen(true)}
               className="w-[90%] bg-primary  text-white hover:text-primary hover:bg-gray-100 transition-colors duration-300 rounded-[50px] h-15 text-4xl flex flex-col items-center justify-center shadow-lg"
             >
