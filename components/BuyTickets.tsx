@@ -133,7 +133,7 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
                     <span className=" text-black/70 font-bold">Standard</span>
                   </div>
 
-                  <span className="font-bold">₦4,500</span>
+                  <span className="text-black/70 font-bold">₦4,500</span>
                 </div>
 
                 {openTicket === "Standard" && (
@@ -144,7 +144,7 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
                       className="rounded-lg mb-2"
                     />
 
-                    <p className="font-bold mb-1">What you get:</p>
+                    <p className="text-black/70 font-bold mb-1">What you get:</p>
                     <ul className="list-disc ml-4">
                       <li>Access to main event</li>
                       <li>Networking session</li>
@@ -170,10 +170,10 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
                       onChange={() => setTicketType("VIP")}
                       className="accent-red-600"
                     />
-                    <span className="font-bold">VIP</span>
+                    <span className="text-black/70 font-bold">VIP</span>
                   </div>
 
-                  <span className="font-bold">₦20,000</span>
+                  <span className="text-black/70 font-bold">₦20,000</span>
                 </div>
 
                 {openTicket === "VIP" && (
@@ -184,7 +184,7 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
                       className="rounded-lg mb-2"
                     />
 
-                    <p className="font-bold mb-1">What you get:</p>
+                    <p className=" text-black/70 font-bold mb-1">What you get:</p>
                     <ul className="list-disc ml-4 space-y-1">
                       <li>Premium front-row seating</li>
                       <li>Priority entry & registration</li>
