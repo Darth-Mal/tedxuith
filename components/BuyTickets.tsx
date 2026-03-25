@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -115,7 +116,13 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
 
             <div className="space-y-3">
               {/* STANDARD */}
-              <div className="border rounded-xl overflow-hidden">
+              <div
+                className={`border rounded-xl overflow-hidden ${
+                  ticketType === "Standard"
+                    ? "border-red-600"
+                    : "border-gray-200"
+                }`}
+              >
                 <div
                   onClick={() => {
                     setTicketType("Standard");
@@ -144,7 +151,9 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
                       className="rounded-lg mb-2"
                     />
 
-                    <p className="text-black/70 font-bold mb-1">What you get:</p>
+                    <p className="text-black/70 font-bold mb-1">
+                      What you get:
+                    </p>
                     <ul className="list-disc ml-4">
                       <li>Access to main event</li>
                       <li>Networking session</li>
@@ -155,7 +164,11 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
               </div>
 
               {/* VIP */}
-              <div className="border rounded-xl overflow-hidden">
+              <div
+                className={`border rounded-xl overflow-hidden ${
+                  ticketType === "VIP" ? "border-red-600" : "border-gray-200"
+                }`}
+              >
                 <div
                   onClick={() => {
                     setTicketType("VIP");
@@ -184,7 +197,9 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
                       className="rounded-lg mb-2"
                     />
 
-                    <p className=" text-black/70 font-bold mb-1">What you get:</p>
+                    <p className=" text-black/70 font-bold mb-1">
+                      What you get:
+                    </p>
                     <ul className="list-disc ml-4 space-y-1">
                       <li>Premium front-row seating</li>
                       <li>Priority entry & registration</li>
@@ -230,4 +245,4 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
       </div>
     </div>
   );
-              }
+                        }
