@@ -12,6 +12,7 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [ticketType, setTicketType] = useState<"Standard" | "VIP">("Standard");
+  const [openTicket, setOpenTicket] = useState<"Standard" | "VIP">("Standard");
   const [loading, setLoading] = useState(false);
 
   // Close with ESC
@@ -50,6 +51,8 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
     }
   };
 
+  const price = ticketType === "VIP" ? "₦20,000" : "₦4,500";
+
   if (!isOpen) return null;
 
   return (
@@ -61,7 +64,7 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
       />
 
       {/* Modal */}
-      <div className="relative z-50 w-full max-w-3xl bg-white rounded-xl p-8 shadow-lg">
+      <div className="relative z-50 w-full max-w-3xl bg-white rounded-xl p-6 shadow-lg max-h-[90vh] overflow-y-auto">
         {/* Close */}
         <button
           onClick={onClose}
@@ -75,23 +78,23 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
           Register for Compass
         </h1>
 
-        <div className="space-y-2 mt-2">
+        <div className="space-y-4 mt-4">
           {/* Name + Email */}
           <div className="grid md:grid-cols-2 gap-4 text-black/70">
             <div>
-              <label className="text-sm font-sans font-bold">
+              <label className="text-sm font-bold">
                 Full name <span className="text-red-500">*</span>
               </label>
               <input
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter your name"
-                className="w-full mt-1 px-2 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 outline-none"
+                className="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 outline-none"
               />
             </div>
 
             <div>
-              <label className="text-sm font-sans font-bold">
+              <label className="text-sm font-bold">
                 Email <span className="text-red-500">*</span>
               </label>
               <input
@@ -99,124 +102,132 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 type="email"
-                className="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 outline-none"
+                className="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-red-500 outline-none"
               />
             </div>
           </div>
 
           {/* Ticket Selection */}
           <div>
-            <p className="text-sm mb-1  text-black/70 font-sans font-bold">
+            <p className="text-sm mb-2 font-bold text-black/70">
               Select Ticket type <span className="text-red-500">*</span>
             </p>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              {/* Standard */}
-              <div
-                onClick={() => setTicketType("Standard")}
-                className={`border rounded-xl p-4 cursor-pointer transition ${
-                  ticketType === "Standard"
-                    ? "border-red-500"
-                    : "hover:border-gray-400"
-                }`}
-              >
-                <div className="flex justify-between items-center mb-1  text-black/70 font-sans">
-                  <div className="flex justify-center items-center gap-2">
-                    {" "}
+            <div className="space-y-3">
+              {/* STANDARD */}
+              <div className="border rounded-xl overflow-hidden">
+                <div
+                  onClick={() => {
+                    setTicketType("Standard");
+                    setOpenTicket("Standard");
+                  }}
+                  className="flex justify-between items-center p-4 cursor-pointer"
+                >
+                  <div className="flex items-center gap-2">
                     <input
                       type="radio"
-                      name="ticket"
                       checked={ticketType === "Standard"}
                       onChange={() => setTicketType("Standard")}
-                      className="accent-red-600 w-4 h-4"
+                      className="accent-red-600"
                     />
-                    <span className="text-md font-bold">Standard</span>
+                    <span className="font-bold">Standard</span>
                   </div>
 
-                  <div className="flex gap-1 justify-center items-center">
-                    {" "}
-                    <img src="/sell.png" className="w-4 h-4" alt="" />
-                    <span className="text-md font-bold">₦4,500</span>
+                  <span className="font-bold">₦4,500</span>
+                </div>
+
+                {openTicket === "Standard" && (
+                  <div className="px-4 pb-4 text-sm text-gray-600">
+                    <img
+                      src="/tickets/stdticket.png"
+                      alt="Standard ticket"
+                      className="rounded-lg mb-2"
+                    />
+
+                    <p className="font-bold mb-1">What you get:</p>
+                    <ul className="list-disc ml-4">
+                      <li>Access to main event</li>
+                      <li>Networking session</li>
+                      <li>Event materials</li>
+                    </ul>
                   </div>
-                </div>
-
-                {/* Image placeholder */}
-                <div className="mt-2 h-20 bg-gray-200 rounded-lg flex items-center justify-center text-sm text-gray-500">
-                  <img src="/tickets/stdticket.png" alt="" />
-                </div>
-
-                <div className="mt-3 text-xs text-gray-600">
-                  <p className=" mb-1 text-xs text-black/70 font-sans font-bold">
-                    What you get with the Standard ticket:
-                  </p>
-                  <ul className="list-disc text-sm ml-4 font-sans">
-                    <li>Access to main event</li>
-                    <li>Networking session</li>
-                    <li>Event materials</li>
-                  </ul>
-                </div>
+                )}
               </div>
 
               {/* VIP */}
-              <div
-                onClick={() => setTicketType("VIP")}
-                className={`border rounded-xl p-4 cursor-pointer transition ${
-                  ticketType === "VIP"
-                    ? "border-red-500"
-                    : "hover:border-gray-400"
-                }`}
-              >
-                <div className="flex justify-between items-center mb-1 text-black/70 font-sans">
-                  <div className="flex justify-center items-center gap-2">
-                    {" "}
+              <div className="border rounded-xl overflow-hidden">
+                <div
+                  onClick={() => {
+                    setTicketType("VIP");
+                    setOpenTicket("VIP");
+                  }}
+                  className="flex justify-between items-center p-4 cursor-pointer"
+                >
+                  <div className="flex items-center gap-2">
                     <input
                       type="radio"
-                      name="ticket"
                       checked={ticketType === "VIP"}
                       onChange={() => setTicketType("VIP")}
-                      className="accent-red-600 w-4 h-4"
+                      className="accent-red-600"
                     />
-                    <span className="text-md font-bold">VIP</span>
+                    <span className="font-bold">VIP</span>
                   </div>
 
-                  <div className="flex gap-1 justify-center items-center">
-                    {" "}
-                    <img src="/sell.png" className="w-4 h-4" alt="" />
-                    <span className="text-md font-bold">₦20,000</span>
+                  <span className="font-bold">₦20,000</span>
+                </div>
+
+                {openTicket === "VIP" && (
+                  <div className="px-4 pb-4 text-sm text-gray-600">
+                    <img
+                      src="/tickets/vipticket.png"
+                      alt="VIP ticket"
+                      className="rounded-lg mb-2"
+                    />
+
+                    <p className="font-bold mb-1">What you get:</p>
+                    <ul className="list-disc ml-4 space-y-1">
+                      <li>Premium front-row seating</li>
+                      <li>Priority entry & registration</li>
+                      <li>VIP networking with speakers</li>
+                      <li>Professional photo session</li>
+                      <li>TEDxUITH Ilorin merchandise</li>
+                    </ul>
                   </div>
-                </div>
-
-                {/* Image placeholder */}
-                <div className="h-20 mt-2 bg-gray-200 rounded-lg flex items-center justify-center text-sm text-gray-500">
-                  <img src="/tickets/vipticket.png" alt="" />
-                </div>
-
-                <div className="mt-3 text-xs text-gray-600">
-                  <p className=" mb-1 text-xs font-bold text-gray-600">
-                    What you get with the VIP ticket:
-                  </p>
-                  <ul className="list-disc ml-4 space-y-1">
-                    <li>Premium front-row seating</li>
-                    <li>Priority entry & registration</li>
-                    <li>VIP networking with speakers</li>
-                    <li>Professional photo session</li>
-                    <li>TEDxUITH Ilorin merchandise</li>
-                  </ul>
-                </div>
+                )}
               </div>
             </div>
           </div>
 
-          {/* Button */}
-          <button
-            onClick={handleBuyTicket}
-            disabled={loading}
-            className="font-main-italic text-xl w-full bg-red-600 text-white py-4 rounded-full hover:bg-red-700 transition disabled:opacity-50"
-          >
-            {loading ? "Processing..." : "Buy Ticket"}
-          </button>
+          {/* Spacer for mobile sticky button */}
+          <div className="h-24 md:hidden" />
+
+          {/* Desktop Button */}
+          <div className="hidden md:block">
+            <button
+              onClick={handleBuyTicket}
+              disabled={loading}
+              className="text-xl w-full bg-red-600 text-white py-4 rounded-full hover:bg-red-700 transition disabled:opacity-50"
+            >
+              {loading
+                ? "Processing..."
+                : `Buy ${ticketType} Ticket – ${price}`}
+            </button>
+          </div>
         </div>
+      </div>
+
+      {/* Mobile Sticky Button */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t p-4">
+        <button
+          onClick={handleBuyTicket}
+          disabled={loading}
+          className="text-lg w-full bg-red-600 text-white py-4 rounded-full shadow-lg hover:bg-red-700 transition disabled:opacity-50"
+        >
+          {loading
+            ? "Processing..."
+            : `Buy ${ticketType} Ticket – ${price}`}
+        </button>
       </div>
     </div>
   );
-}
+              }
