@@ -221,7 +221,7 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
             <button
               onClick={handleBuyTicket}
               disabled={loading}
-              className="text-xl w-full bg-red-600 text-white py-4 rounded-full hover:bg-red-700 transition disabled:opacity-50"
+              className="text-xl w-full font-heading-italic bg-red-600 text-white py-4 rounded-full hover:bg-red-700 transition disabled:opacity-50"
             >
               {loading
                 ? "Processing..."
