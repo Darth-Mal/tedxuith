@@ -130,7 +130,7 @@ export default function TicketModal({ isOpen, onClose }: TicketModalProps) {
                       onChange={() => setTicketType("Standard")}
                       className="accent-red-600"
                     />
-                    <span className="font-bold">Standard</span>
+                    <span className=" text-black/70 font-bold">Standard</span>
                   </div>
 
                   <span className="font-bold">₦4,500</span>
